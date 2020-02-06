@@ -4,7 +4,7 @@ namespace SeleniumFrameworkPractise
 {
     public class PageBase
     {
-        public IWebDriver Driver;
+        private IWebDriver Driver;
         
         public PageBase(IWebDriver driver)
         {
