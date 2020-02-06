@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using SeleniumFrameworkPractise.Pages;
+using SeleniumFrameworkPractise.Steps;
 
 namespace SeleniumFrameworkPractise
 {
@@ -8,6 +10,9 @@ namespace SeleniumFrameworkPractise
         [Test]
         public void test01()
         {
+            var HomePageSteps = new HomePageSteps(new HomePage(Driver));
+
+            HomePageSteps.OpenPage();
         }
     }
 }

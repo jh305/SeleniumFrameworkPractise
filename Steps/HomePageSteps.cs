@@ -10,5 +10,8 @@ namespace SeleniumFrameworkPractise.Steps
         {
             this.Homepage = homepage;
         }
+
+        public void OpenPage() =>
+            Homepage.NavigateToURL();
     }
 }

@@ -1,12 +1,18 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
 
 namespace SeleniumFrameworkPractise
 {
     public class DriverBase
     {
-        private IWebDriver Driver;
-        
+        public IWebDriver Driver; 
+
+        public DriverBase()
+        {
+            this.Driver = new FirefoxDriver();
+        }
+
         [TearDown]
         public void Cleanup()
         {
