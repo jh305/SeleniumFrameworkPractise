@@ -12,6 +12,9 @@ namespace SeleniumFrameworkPractise.Steps
         }
 
         public void OpenPage() =>
-            Homepage.NavigateToURL();
+            Homepage.NavigateToPage();
+
+        public void ClickStartPractisingButton() =>
+            Homepage.ClickStartPractisingElement();
     }
 }
