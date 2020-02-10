@@ -14,6 +14,9 @@ namespace SeleniumFrameworkPractise.Blocks
         
         public void ClickProceedNextElement()
         {
+            Wait.Until(condition => 
+                WaitForElementToBeVisible(GetProceedNextButtonElement()));
+
             ScrollElementIntoView(GetProceedNextButtonElement());
             GetProceedNextButtonElement().Click();
         }

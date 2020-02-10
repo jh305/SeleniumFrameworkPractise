@@ -14,7 +14,13 @@ namespace SeleniumFrameworkPractise.Blocks
         IWebElement GetDragAndDropLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#advanced > div > a:nth-child(9)")));
 
-        public void ClickDragAndDropLinkElement() =>
+        public void ClickDragAndDropLinkElement()
+        {
+            Wait.Until(condition =>
+                WaitForElementToBeVisible(GetDragAndDropLinkElement()));
+
             GetDragAndDropLinkElement().Click();
+        }
+            
     }
 }

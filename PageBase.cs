@@ -31,5 +31,7 @@ namespace SeleniumFrameworkPractise
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             js.ExecuteScript("arguments[0].scrollIntoView(true)", Element);
         }
+
+
     }
 }

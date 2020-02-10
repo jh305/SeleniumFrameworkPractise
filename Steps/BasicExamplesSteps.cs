@@ -14,7 +14,12 @@ namespace SeleniumFrameworkPractise.Steps
             this.BasicExamples = basicExamples;
         }
 
-        public void ClickProceedNextButton() =>
+        public void ClickProceedNextButton()
+        {        
+            
             BasicExamples.ClickProceedNextElement();
+
+        }
+            
     }
 }

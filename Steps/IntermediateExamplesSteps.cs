@@ -16,6 +16,6 @@ namespace SeleniumFrameworkPractise.Steps
         }
 
         public void ClickProceedNextButton() =>
-            IntermediateExamples.ClickProceedNextElement();
+            IntermediateExamples.ClickStartPractisingButton();
     }
 }

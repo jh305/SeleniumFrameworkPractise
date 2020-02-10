@@ -27,19 +27,17 @@ namespace SeleniumFrameworkPractise
             js.ExecuteScript("arguments[0].scrollIntoView(true)", Element);
         }
 
-        public bool ElementIsDisplayed(IWebElement element)
+        public bool WaitForElementToBeVisible(IWebElement element)
         {
             try
             {
-                if (element.Displayed)
-                {
-                    return true;
-                }
-
-                return false;
-
+                return element.Displayed;
             }
-            catch
+            catch (StaleElementReferenceException)
+            {
+                return false;
+            }
+            catch (NoSuchElementException)
             {
                 return false;
             }

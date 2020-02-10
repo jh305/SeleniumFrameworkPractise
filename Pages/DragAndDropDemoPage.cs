@@ -27,9 +27,12 @@ namespace SeleniumFrameworkPractise.Pages
         public IList<IWebElement> GetAllElementsInDroppedItemsList() =>
             DroppedItemsElement().FindElements(By.TagName("span"));
 
-        public void DragItemAcross(IWebElement element) =>
-            Actions.DragAndDrop(element, DropZoneElement());
-
-
+        public void DragItemAcross(IWebElement element)
+        {
+            Actions.ClickAndHold(element);
+            Actions.MoveToElement(DropZoneElement());
+            Actions.Release(element);
+            Actions.Build().Perform();
+        }
     }
 }
