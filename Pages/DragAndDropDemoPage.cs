@@ -29,10 +29,15 @@ namespace SeleniumFrameworkPractise.Pages
 
         public void DragItemAcross(IWebElement element)
         {
+            //Doesn't work
+            Actions.MoveToElement(element);
             Actions.ClickAndHold(element);
             Actions.MoveToElement(DropZoneElement());
-            Actions.Release(element);
-            Actions.Build().Perform();
+            Actions.Release();
+            Actions.Perform();
+
+            //Doesn't work
+            //Actions.DragAndDrop(element, DropZoneElement()).Build().Perform();
         }
     }
 }
