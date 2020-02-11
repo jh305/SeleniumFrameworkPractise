@@ -12,7 +12,7 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
             this.DataListFilterPage = dataListFilterPage;
         }
 
-        public SearchResultAttendee asdfsdafsafd() =>
+        public SearchResultAttendee ExtractAttendeeDataOfFirstSearchResult() =>
             DataListFilterPage.ReturnResultOfSearchObject();
 
         public void SearchForAttendee(string attendeeName) =>

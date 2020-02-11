@@ -15,7 +15,7 @@ namespace SeleniumFrameworkPractise.Blocks
             Wait.Until(d => d.FindElement(By.CssSelector(".searchable-container > div > div")));
 
         private IWebElement GetAttendeeCompanyNameElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector(".searchable-container > div > div > h5")));
+            Wait.Until(d => d.FindElement(By.CssSelector(".searchable-container > div:nth-child(1) > div > h5")));
 
         private IWebElement GetAttendeeNameElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector(".searchable-container > div > div > h4")));

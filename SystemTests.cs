@@ -75,7 +75,7 @@ namespace SeleniumFrameworkPractise
             basicExamplesSteps.ClickProceedNextButton();
             intermediateExamplesSteps.ClickDataListFilterLink();
             dataListFilterSteps.SearchForAttendee(attendeenName);
-            SearchResultAttendee searchResultAttendee = dataListFilterSteps.asdfsdafsafd();            
+            SearchResultAttendee searchResultAttendee = dataListFilterSteps.ExtractAttendeeDataOfFirstSearchResult();            
 
             // Assert
             using (new AssertionScope())
