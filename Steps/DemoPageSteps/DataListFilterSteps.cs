@@ -1,4 +1,5 @@
-﻿using SeleniumFrameworkPractise.Pages;
+﻿using SeleniumFrameworkPractise.PageObjects;
+using SeleniumFrameworkPractise.Pages;
 
 namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 {
@@ -10,5 +11,11 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
         {
             this.DataListFilterPage = dataListFilterPage;
         }
+
+        public SearchResultAttendee asdfsdafsafd() =>
+            DataListFilterPage.ReturnResultOfSearchObject();
+
+        public void SearchForAttendee(string attendeeName) =>
+            DataListFilterPage.EnterAttendeeNameIntoFilter(attendeeName);
     }
 }
