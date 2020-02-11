@@ -25,6 +25,13 @@ namespace SeleniumFrameworkPractise.Pages
             this.BasicExamplesBlock = basicExamplesBlock;
         }
 
+        public HomePage(IWebDriver driver, BasicExamples basicExamplesBlock, IntermediateExamples intermediateExamplesBlock) : base(driver)
+        {
+            this.Driver = driver;
+            this.BasicExamplesBlock = basicExamplesBlock;
+            this.IntermediateExamplesBlock = intermediateExamplesBlock;
+        }
+
         private IWebElement GetStartPractisingButtonElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#btn_basic_example")));
 

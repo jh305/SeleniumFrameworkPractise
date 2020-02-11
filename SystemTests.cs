@@ -11,7 +11,7 @@ namespace SeleniumFrameworkPractise
     public class SystemTests : DriverBase
     {
         [Test]
-        public void DragAndDropTest()
+        public void Advanced_DragAndDropTest()
         {
             // Arrange
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamples(Driver), new IntermediateExamples(Driver), new AdvancedExamples(Driver)));
@@ -30,7 +30,7 @@ namespace SeleniumFrameworkPractise
         }
 
         [Test]
-        public void BasicInputFieldsTest()
+        public void Basic_InputFieldsTest()
         {          
             // Arrange
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamples(Driver)));
@@ -54,6 +54,27 @@ namespace SeleniumFrameworkPractise
                 basicFirstFormDemoSteps.EnterCharactersAndReturnDisplayedSumOfCharacters(notANumber1, notANumber2).Should().Be("NaN");
                 basicFirstFormDemoSteps.EnterCharactersAndReturnDisplayedSumOfCharacters(isANumber1, isANumber2).Should().Be(expectedSum);
             }
+        }
+
+        [Test]
+        public void Intermediate_DataListFilterTest()
+        {
+            // Arrange
+            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamples(Driver), new IntermediateExamples(Driver)));
+            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamples(Driver));
+            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamples(Driver));
+
+            // Act
+            homePageSteps.OpenPage();
+            homePageSteps.ClickStartPractisingButton();
+            basicExamplesSteps.ClickProceedNextButton();
+            intermediateExamplesSteps.ClickDataListFilterLink();
+
+            using (new AssertionScope())
+            {
+
+            }
+
         }
     }
 }

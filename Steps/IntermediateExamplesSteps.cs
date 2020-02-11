@@ -13,5 +13,8 @@ namespace SeleniumFrameworkPractise.Steps
 
         public void ClickProceedNextButton() =>
             IntermediateExamples.ClickStartPractisingButton();
+
+        public void ClickDataListFilterLink() =>
+            IntermediateExamples.ClickDataListFilterLink();
     }
 }
