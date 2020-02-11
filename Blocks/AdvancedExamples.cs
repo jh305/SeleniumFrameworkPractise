@@ -20,7 +20,6 @@ namespace SeleniumFrameworkPractise.Blocks
                 WaitForElementToBeVisible(GetDragAndDropLinkElement()));
 
             GetDragAndDropLinkElement().Click();
-        }
-            
+        }            
     }
 }

@@ -12,27 +12,27 @@ namespace SeleniumFrameworkPractise.Pages
             this.Driver = driver;
         }
 
-        private IWebElement ItemsToDragElement() =>
+        private IWebElement GetItemsToDragElement() =>
             Driver.FindElement(By.CssSelector("#todrag"));
 
-        private IWebElement DroppedItemsElement() =>
+        private IWebElement GetDroppedItemsElement() =>
             Driver.FindElement(By.CssSelector("#droppedlist"));
 
-        private IWebElement DropZoneElement() =>
+        private IWebElement GetDropZoneElement() =>
             Driver.FindElement(By.CssSelector("#mydropzone"));
 
         public IList<IWebElement> GetAllElementsInItemsToDragList() =>
-            ItemsToDragElement().FindElements(By.TagName("span"));
+            GetItemsToDragElement().FindElements(By.TagName("span"));
 
         public IList<IWebElement> GetAllElementsInDroppedItemsList() =>
-            DroppedItemsElement().FindElements(By.TagName("span"));
+            GetDroppedItemsElement().FindElements(By.TagName("span"));
 
         public void DragItemAcross(IWebElement element)
         {
             //Doesn't work
             Actions.MoveToElement(element);
             Actions.ClickAndHold(element);
-            Actions.MoveToElement(DropZoneElement());
+            Actions.MoveToElement(GetDropZoneElement());
             Actions.Release();
             Actions.Perform();
 

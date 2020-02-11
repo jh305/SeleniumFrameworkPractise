@@ -1,7 +1,4 @@
 ﻿using SeleniumFrameworkPractise.Blocks;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SeleniumFrameworkPractise.Steps
 {
@@ -14,12 +11,10 @@ namespace SeleniumFrameworkPractise.Steps
             this.BasicExamples = basicExamples;
         }
 
-        public void ClickProceedNextButton()
-        {        
-            
+        public void ClickProceedNextButton() =>
             BasicExamples.ClickProceedNextElement();
 
-        }
-            
+        public void ClickSimpleFormDemoLink() =>
+            BasicExamples.ClickSimpleFormDemoLink();            
     }
 }

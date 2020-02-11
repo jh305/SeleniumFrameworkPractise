@@ -32,6 +32,10 @@ namespace SeleniumFrameworkPractise
             js.ExecuteScript("arguments[0].scrollIntoView(true)", Element);
         }
 
-
+        public void ClearAndSendKeys(IWebElement element, string text)
+        {
+            element.Clear();
+            element.SendKeys(text);
+        }
     }
 }

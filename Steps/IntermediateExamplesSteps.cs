@@ -1,8 +1,4 @@
-﻿using OpenQA.Selenium;
-using SeleniumFrameworkPractise.Blocks;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SeleniumFrameworkPractise.Blocks;
 
 namespace SeleniumFrameworkPractise.Steps
 {

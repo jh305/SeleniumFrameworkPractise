@@ -10,8 +10,11 @@ namespace SeleniumFrameworkPractise.Blocks
             this.Driver = driver;
         }
         IWebElement GetProceedNextButtonElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#btn_inter_example")));    
-        
+            Wait.Until(d => d.FindElement(By.CssSelector("#btn_inter_example")));
+
+        IWebElement GetSimpleFormDemoLinkElement() =>
+            Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(1)")));
+
         public void ClickProceedNextElement()
         {
             Wait.Until(condition => 
@@ -19,6 +22,14 @@ namespace SeleniumFrameworkPractise.Blocks
 
             ScrollElementIntoView(GetProceedNextButtonElement());
             GetProceedNextButtonElement().Click();
+        }
+
+        public void ClickSimpleFormDemoLink()
+        {
+            Wait.Until(condition =>
+                WaitForElementToBeVisible(GetSimpleFormDemoLinkElement()));
+
+            GetSimpleFormDemoLinkElement().Click();
         }
     }
 }
