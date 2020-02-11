@@ -2,11 +2,11 @@
 
 namespace SeleniumFrameworkPractise.Blocks
 {
-    public class IntermediateExamples : BlockBase
+    public class IntermediateExamplesBlock : BlockBase
     {
         IWebDriver Driver;
 
-        public IntermediateExamples(IWebDriver driver) : base(driver)
+        public IntermediateExamplesBlock(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
         }

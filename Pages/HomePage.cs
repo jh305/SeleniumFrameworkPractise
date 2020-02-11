@@ -7,11 +7,11 @@ namespace SeleniumFrameworkPractise.Pages
     {
         private IWebDriver Driver;
 
-        public BasicExamples BasicExamplesBlock;
-        public IntermediateExamples IntermediateExamplesBlock;
-        public AdvancedExamples AdvancedxamplesBlock;
+        public BasicExamplesBlock BasicExamplesBlock;
+        public IntermediateExamplesBlock IntermediateExamplesBlock;
+        public AdvancedExamplesBlock AdvancedxamplesBlock;
 
-        public HomePage(IWebDriver driver, BasicExamples basicExamplesBlock, IntermediateExamples intermediateExamplesBlock, AdvancedExamples advancedExamplesBlock) : base(driver)
+        public HomePage(IWebDriver driver, BasicExamplesBlock basicExamplesBlock, IntermediateExamplesBlock intermediateExamplesBlock, AdvancedExamplesBlock advancedExamplesBlock) : base(driver)
         {
             this.Driver = driver;
             this.BasicExamplesBlock = basicExamplesBlock;
@@ -19,13 +19,13 @@ namespace SeleniumFrameworkPractise.Pages
             this.AdvancedxamplesBlock = advancedExamplesBlock;
         }
 
-        public HomePage(IWebDriver driver, BasicExamples basicExamplesBlock) : base(driver)
+        public HomePage(IWebDriver driver, BasicExamplesBlock basicExamplesBlock) : base(driver)
         {
             this.Driver = driver;
             this.BasicExamplesBlock = basicExamplesBlock;
         }
 
-        public HomePage(IWebDriver driver, BasicExamples basicExamplesBlock, IntermediateExamples intermediateExamplesBlock) : base(driver)
+        public HomePage(IWebDriver driver, BasicExamplesBlock basicExamplesBlock, IntermediateExamplesBlock intermediateExamplesBlock) : base(driver)
         {
             this.Driver = driver;
             this.BasicExamplesBlock = basicExamplesBlock;

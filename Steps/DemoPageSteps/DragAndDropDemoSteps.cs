@@ -38,17 +38,14 @@ namespace SeleniumFrameworkPractise.Steps
 
         public void CheckItemIsInItemsList()
         {
-
         }
 
         public void CheckItemsIsNoLongerInItemsToDragList()
         {
-
         }
 
         public void checkIfThereAreItemsToDrag()
         {
-
         }
 
     }

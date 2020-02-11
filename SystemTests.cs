@@ -4,6 +4,7 @@ using NUnit.Framework;
 using SeleniumFrameworkPractise.Blocks;
 using SeleniumFrameworkPractise.Pages;
 using SeleniumFrameworkPractise.Steps;
+using SeleniumFrameworkPractise.Steps.DemoPageSteps;
 
 namespace SeleniumFrameworkPractise
 {
@@ -14,11 +15,11 @@ namespace SeleniumFrameworkPractise
         public void Advanced_DragAndDropTest()
         {
             // Arrange
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamples(Driver), new IntermediateExamples(Driver), new AdvancedExamples(Driver)));
+            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver), new AdvancedExamplesBlock(Driver)));
             var dragAndDropDemoSteps = new DragAndDropDemoSteps(new DragAndDropDemoPage(Driver));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamples(Driver));
-            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamples(Driver));
-            var advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamples(Driver));
+            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
+            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
+            var advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
 
             // Act
             homePageSteps.OpenPage();
@@ -33,11 +34,11 @@ namespace SeleniumFrameworkPractise
         public void Basic_InputFieldsTest()
         {          
             // Arrange
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamples(Driver)));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamples(Driver));
+            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver)));
+            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
             var basicFirstFormDemoSteps = new BasicFirstFormDemoSteps(new BasicFirstFormDemoPage(Driver));
             string expectedText = "This is my string, there are many like it, but this one is mine";
-            string notANumber1 = "Shpldnt";
+            string notANumber1 = "Sholdnt";
             string notANumber2 = "Work";
             string isANumber1 = "234";
             string isANumber2 = "543";
@@ -60,15 +61,17 @@ namespace SeleniumFrameworkPractise
         public void Intermediate_DataListFilterTest()
         {
             // Arrange
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamples(Driver), new IntermediateExamples(Driver)));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamples(Driver));
-            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamples(Driver));
+            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
+            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
+            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
+            var dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(Driver, new DataListFilterBlock(Driver)));
 
             // Act
             homePageSteps.OpenPage();
             homePageSteps.ClickStartPractisingButton();
             basicExamplesSteps.ClickProceedNextButton();
             intermediateExamplesSteps.ClickDataListFilterLink();
+            
 
             using (new AssertionScope())
             {

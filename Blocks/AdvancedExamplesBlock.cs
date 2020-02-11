@@ -2,11 +2,11 @@
 
 namespace SeleniumFrameworkPractise.Blocks
 {
-    public class AdvancedExamples: BlockBase
+    public class AdvancedExamplesBlock: BlockBase
     {
         IWebDriver Driver;
 
-        public AdvancedExamples(IWebDriver driver) : base(driver)
+        public AdvancedExamplesBlock(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
         }
