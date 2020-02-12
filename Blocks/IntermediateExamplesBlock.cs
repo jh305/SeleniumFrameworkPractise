@@ -17,7 +17,10 @@ namespace SeleniumFrameworkPractise.Blocks
         IWebElement GetDataListFilterLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(6)")));
 
-        public void ClickStartPractisingButton()
+        IWebElement GetJQuerySelectDropDownLinkElement() =>
+            Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(5)")));
+
+        public void ClickProceedNextButton()
         {
             Wait.Until(condition =>
                 WaitForElementToBeVisible(GetProceedNextButtonElement()));
@@ -33,6 +36,15 @@ namespace SeleniumFrameworkPractise.Blocks
 
             ScrollElementIntoView(GetDataListFilterLinkElement());
             GetDataListFilterLinkElement().Click();
+        }
+
+        public void ClickJQuerySelectDropDownLink()
+        {
+            Wait.Until(condition =>
+                WaitForElementToBeVisible(GetJQuerySelectDropDownLinkElement()));
+
+            ScrollElementIntoView(GetJQuerySelectDropDownLinkElement());
+            GetJQuerySelectDropDownLinkElement().Click();
         }
     }
 }

@@ -116,5 +116,27 @@ namespace SeleniumFrameworkPractise.Tests
                 searchResultAttendee.Email.Should().Be("test2@company.com");
             }
         }
+
+        [Test]
+        [Category("Intermediate")]
+        public void Intermediate_JQueryDropDown()
+        {
+            // Arrange
+            CreateDriver();
+            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
+            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
+            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
+
+            // Act
+            homePageSteps.OpenPage();
+            homePageSteps.ClickStartPractisingButton();
+            basicExamplesSteps.ClickProceedNextButton();
+            intermediateExamplesSteps.ClickJQuerySelectDropDownLink();
+
+            // Assert
+            using (new AssertionScope())
+            {
+            }
+        }
     }
 }

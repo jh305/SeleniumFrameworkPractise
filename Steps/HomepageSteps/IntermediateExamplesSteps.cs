@@ -12,9 +12,12 @@ namespace SeleniumFrameworkPractise.Steps
         }
 
         public void ClickProceedNextButton() =>
-            IntermediateExamplesBlock.ClickStartPractisingButton();
+            IntermediateExamplesBlock.ClickProceedNextButton();
 
         public void ClickDataListFilterLink() =>
             IntermediateExamplesBlock.ClickDataListFilterLink();
+
+        public void ClickJQuerySelectDropDownLink() =>
+            IntermediateExamplesBlock.ClickJQuerySelectDropDownLink();
     }
 }
