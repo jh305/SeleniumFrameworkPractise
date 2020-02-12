@@ -10,7 +10,7 @@ namespace SeleniumFrameworkPractise.Pages
             this.Driver = driver;
         }
         private IWebElement GetCountryDropDownElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#country > "))); //NEED TO CHANGE!!!
+            Wait.Until(d => d.FindElement(By.CssSelector(".select2 select2-container select2-container--default > span:nth-child(1) > span:nthchild(1)"))); //NEED TO CHANGE!!!
 
         private IWebElement GetCountryDropDownSearchElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector(".select2-search select2-search--dropdown > input")));
