@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumFrameworkPractise.Blocks;
+using SeleniumFrameworkPractise.Settings;
 
 namespace SeleniumFrameworkPractise.Pages
 {
@@ -42,6 +43,6 @@ namespace SeleniumFrameworkPractise.Pages
         }
 
         public void NavigateToPage() =>
-            Driver.Url = "https://www.seleniumeasy.com/test/";
+            Driver.Url = TestSettings.TestUrl;
     }
 }
