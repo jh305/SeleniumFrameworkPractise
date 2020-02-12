@@ -13,6 +13,7 @@ namespace SeleniumFrameworkPractise
     public class SystemTests : DriverBase
     {
         [Test]
+        [Category("Advanced")]
         public void Advanced_DragAndDropTest()
         {
             // Arrange
@@ -32,6 +33,7 @@ namespace SeleniumFrameworkPractise
         }
 
         [Test]
+        [Category("Basic")]
         public void Basic_InputFieldsTest()
         {          
             // Arrange
@@ -60,6 +62,27 @@ namespace SeleniumFrameworkPractise
         }
 
         [Test]
+        [Category("Basic")]
+        public void Basic_CheckBoxTest()
+        {
+            // Arrange
+            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver)));
+            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
+            var basicCheckboxDemoSteps = new BasicCheckboxDemoSteps(new BasicCheckboxDemoPage(Driver));
+
+            // Act
+            homePageSteps.OpenPage();
+            homePageSteps.ClickStartPractisingButton();
+            basicExamplesSteps.ClickCheckboxDemoLink();
+
+            // Assert
+            using (new AssertionScope())
+            {
+            }
+        }
+
+        [Test]
+        [Category("Intermediate")]
         public void Intermediate_DataListFilterTest()
         {
             // Arrange

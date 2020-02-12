@@ -15,6 +15,9 @@ namespace SeleniumFrameworkPractise.Blocks
         IWebElement GetSimpleFormDemoLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(1)")));
 
+        IWebElement GetCheckboxDemoLinkElement() =>
+            Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(2)")));
+
         public void ClickProceedNextElement()
         {
             Wait.Until(condition => 
@@ -30,6 +33,14 @@ namespace SeleniumFrameworkPractise.Blocks
                 WaitForElementToBeVisible(GetSimpleFormDemoLinkElement()));
 
             GetSimpleFormDemoLinkElement().Click();
+        }
+
+        public void ClickCheckboxDemoLink()
+        {
+            Wait.Until(condition =>
+                WaitForElementToBeVisible(GetCheckboxDemoLinkElement()));
+
+            GetCheckboxDemoLinkElement().Click();
         }
     }
 }

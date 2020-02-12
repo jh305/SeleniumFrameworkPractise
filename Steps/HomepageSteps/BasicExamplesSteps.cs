@@ -15,6 +15,9 @@ namespace SeleniumFrameworkPractise.Steps
             BasicExamplesBlock.ClickProceedNextElement();
 
         public void ClickSimpleFormDemoLink() =>
-            BasicExamplesBlock.ClickSimpleFormDemoLink();            
+            BasicExamplesBlock.ClickSimpleFormDemoLink();
+
+        public void ClickCheckboxDemoLink() =>
+            BasicExamplesBlock.ClickCheckboxDemoLink();
     }
 }
