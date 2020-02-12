@@ -7,7 +7,7 @@ using SeleniumFrameworkPractise.Pages;
 using SeleniumFrameworkPractise.Steps;
 using SeleniumFrameworkPractise.Steps.DemoPageSteps;
 
-namespace SeleniumFrameworkPractise
+namespace SeleniumFrameworkPractise.Tests
 {
     [TestFixture]
     public class SystemTests : DriverBase
@@ -78,6 +78,8 @@ namespace SeleniumFrameworkPractise
             // Assert
             using (new AssertionScope())
             {
+                basicCheckboxDemoSteps.SingleCheckboxTest().Should().BeTrue();
+                basicCheckboxDemoSteps.MultipleCheckboxTest().Should().BeTrue();
             }
         }
 

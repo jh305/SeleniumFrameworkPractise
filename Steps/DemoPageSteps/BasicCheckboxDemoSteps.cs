@@ -10,14 +10,30 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
             this.BasicCheckboxDemoPage = basicCheckboxDemoPage;
         }
 
-        public void singleChecboxTest()
+        public bool SingleCheckboxTest()
         {
-
+            if (BasicCheckboxDemoPage.SelectSingleCheckbox() && BasicCheckboxDemoPage.CheckboxIsCheckedSuccessMessageStatus())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public void MultipleCheckboxTest()
+        public bool MultipleCheckboxTest()
         {
+            BasicCheckboxDemoPage.ClickCheckAllButton();
 
+            if (BasicCheckboxDemoPage.CheckAllOptionCheckboxesAreChecked())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
