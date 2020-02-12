@@ -126,6 +126,7 @@ namespace SeleniumFrameworkPractise.Tests
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
             var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
             var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
+            var jQueryropDownSearchDemoSteps = new JQueryropDownSearchDemoSteps(new JQueryDropDownSearchDemoPage(Driver));
 
             // Act
             homePageSteps.OpenPage();
@@ -136,6 +137,7 @@ namespace SeleniumFrameworkPractise.Tests
             // Assert
             using (new AssertionScope())
             {
+                jQueryropDownSearchDemoSteps.DropDownWithSearchBoxTest("Denmark").Should().BeTrue();
             }
         }
     }

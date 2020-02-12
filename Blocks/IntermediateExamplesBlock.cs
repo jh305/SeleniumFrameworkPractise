@@ -18,7 +18,7 @@ namespace SeleniumFrameworkPractise.Blocks
             Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(6)")));
 
         IWebElement GetJQuerySelectDropDownLinkElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(5)")));
+            Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(3)")));
 
         public void ClickProceedNextButton()
         {

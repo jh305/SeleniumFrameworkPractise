@@ -37,5 +37,21 @@ namespace SeleniumFrameworkPractise
             element.Clear();
             element.SendKeys(text);
         }
+
+        public bool WaitForElementToBeVisible(IWebElement element)
+        {
+            try
+            {
+                return element.Displayed;
+            }
+            catch (StaleElementReferenceException)
+            {
+                return false;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
     }
 }
