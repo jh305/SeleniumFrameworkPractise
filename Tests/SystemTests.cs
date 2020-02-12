@@ -17,6 +17,7 @@ namespace SeleniumFrameworkPractise.Tests
         public void Advanced_DragAndDropTest()
         {
             // Arrange
+            CreateDriver();
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver), new AdvancedExamplesBlock(Driver)));
             var dragAndDropDemoSteps = new DragAndDropDemoSteps(new DragAndDropDemoPage(Driver));
             var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
@@ -35,8 +36,9 @@ namespace SeleniumFrameworkPractise.Tests
         [Test]
         [Category("Basic")]
         public void Basic_InputFieldsTest()
-        {          
+        {
             // Arrange
+            CreateDriver();
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver)));
             var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
             var basicFirstFormDemoSteps = new BasicFirstFormDemoSteps(new BasicFirstFormDemoPage(Driver));
@@ -66,6 +68,7 @@ namespace SeleniumFrameworkPractise.Tests
         public void Basic_CheckBoxTest()
         {
             // Arrange
+            CreateDriver();
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver)));
             var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
             var basicCheckboxDemoSteps = new BasicCheckboxDemoSteps(new BasicCheckboxDemoPage(Driver));
@@ -88,6 +91,7 @@ namespace SeleniumFrameworkPractise.Tests
         public void Intermediate_DataListFilterTest()
         {
             // Arrange
+            CreateDriver();
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
             var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
             var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));

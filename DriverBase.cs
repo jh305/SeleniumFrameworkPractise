@@ -7,12 +7,7 @@ namespace SeleniumFrameworkPractise
 {
     public class DriverBase
     {
-        public IWebDriver Driver;
-
-        public DriverBase()
-        {
-            this.Driver = new ChromeDriver();
-        }        
+        public IWebDriver Driver;   
 
         [TearDown]
         public void Cleanup()
@@ -23,6 +18,11 @@ namespace SeleniumFrameworkPractise
                 this.Driver.Dispose();
                 this.Driver = null;
             }
+        }
+
+        public void CreateDriver()
+        {
+            this.Driver = new ChromeDriver();
         }
     }
 }
