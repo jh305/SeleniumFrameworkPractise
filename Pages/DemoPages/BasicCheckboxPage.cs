@@ -2,11 +2,11 @@
 
 namespace SeleniumFrameworkPractise.Pages
 {
-    public class BasicCheckboxDemoPage : PageBase
+    public class BasicCheckboxPage : PageBase
     {
         IWebDriver Driver;
 
-        public BasicCheckboxDemoPage(IWebDriver driver) : base(driver)
+        public BasicCheckboxPage(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
         }

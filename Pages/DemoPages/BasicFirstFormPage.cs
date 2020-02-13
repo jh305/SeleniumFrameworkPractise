@@ -2,11 +2,11 @@
 
 namespace SeleniumFrameworkPractise.Pages
 {
-    public class BasicFirstFormDemoPage : PageBase
+    public class BasicFirstFormPage : PageBase
     {
         IWebDriver Driver;
 
-        public BasicFirstFormDemoPage(IWebDriver driver) : base(driver)
+        public BasicFirstFormPage(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
         }

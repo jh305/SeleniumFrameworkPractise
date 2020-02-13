@@ -13,5 +13,8 @@ namespace SeleniumFrameworkPractise.Steps
 
         public void ClickDragAndDropLink() =>
             AdvancedExamplesBlock.ClickDragAndDropLinkElement();
+
+        public void ClickDragAndDropSlidersLink() =>
+            AdvancedExamplesBlock.ClickDragAndDropSlidersLinkElement();
     }
 }

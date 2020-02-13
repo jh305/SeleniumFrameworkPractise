@@ -4,8 +4,8 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 {
     public class JQueryropDownSearchDemoSteps
     {
-        JQueryDropDownSearchDemoPage JQueryDropDownSearchDemoPage;
-        public JQueryropDownSearchDemoSteps(JQueryDropDownSearchDemoPage jQueryDropDownSearchDemoPage)
+        JQueryDropDownSearchPage JQueryDropDownSearchDemoPage;
+        public JQueryropDownSearchDemoSteps(JQueryDropDownSearchPage jQueryDropDownSearchDemoPage)
         {
             this.JQueryDropDownSearchDemoPage = jQueryDropDownSearchDemoPage;
         }

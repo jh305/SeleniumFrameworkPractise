@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace SeleniumFrameworkPractise.Pages
 {
-    public class DragAndDropDemoPage : PageBase
+    public class DragAndDropPage : PageBase
     {
         public IWebDriver Driver;        
 
-        public DragAndDropDemoPage(IWebDriver driver) : base(driver)
+        public DragAndDropPage(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
         }

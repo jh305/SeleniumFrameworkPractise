@@ -13,27 +13,6 @@ namespace SeleniumFrameworkPractise.Tests
     public class SystemTests : DriverBase
     {
         [Test]
-        [Category("Advanced")]
-        public void Advanced_DragAndDropTest()
-        {
-            // Arrange
-            CreateDriver();
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver), new AdvancedExamplesBlock(Driver)));
-            var dragAndDropDemoSteps = new DragAndDropDemoSteps(new DragAndDropDemoPage(Driver));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
-            var advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
-
-            // Act
-            homePageSteps.OpenPage();
-            homePageSteps.ClickStartPractisingButton();
-            basicExamplesSteps.ClickProceedNextButton();
-            intermediateExamplesSteps.ClickProceedNextButton();
-            advancedExamplesSteps.ClickDragAndDropLink();
-            dragAndDropDemoSteps.DragAndDropAllItems();
-        }
-
-        [Test]
         [Category("Basic")]
         public void Basic_InputFieldsTest()
         {
@@ -41,7 +20,7 @@ namespace SeleniumFrameworkPractise.Tests
             CreateDriver();
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver)));
             var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var basicFirstFormDemoSteps = new BasicFirstFormDemoSteps(new BasicFirstFormDemoPage(Driver));
+            var basicFirstFormDemoSteps = new BasicFirstFormDemoSteps(new BasicFirstFormPage(Driver));
             string expectedText = "This is my string, there are many like it, but this one is mine";
             string notANumber1 = "Sholdnt";
             string notANumber2 = "Work";
@@ -71,7 +50,7 @@ namespace SeleniumFrameworkPractise.Tests
             CreateDriver();
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver)));
             var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var basicCheckboxDemoSteps = new BasicCheckboxDemoSteps(new BasicCheckboxDemoPage(Driver));
+            var basicCheckboxDemoSteps = new BasicCheckboxDemoSteps(new BasicCheckboxPage(Driver));
 
             // Act
             homePageSteps.OpenPage();
@@ -126,7 +105,7 @@ namespace SeleniumFrameworkPractise.Tests
             var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
             var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
             var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
-            var jQueryropDownSearchDemoSteps = new JQueryropDownSearchDemoSteps(new JQueryDropDownSearchDemoPage(Driver));
+            var jQueryropDownSearchDemoSteps = new JQueryropDownSearchDemoSteps(new JQueryDropDownSearchPage(Driver));
 
             // Act
             homePageSteps.OpenPage();
@@ -138,6 +117,52 @@ namespace SeleniumFrameworkPractise.Tests
             using (new AssertionScope())
             {
                 jQueryropDownSearchDemoSteps.DropDownWithSearchBoxTest("Denmark").Should().BeTrue();
+            }
+        }
+
+        [Test]
+        [Category("Advanced")]
+        public void Advanced_DragAndDropTest()
+        {
+            // Arrange
+            CreateDriver();
+            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver), new AdvancedExamplesBlock(Driver)));
+            var dragAndDropDemoSteps = new DragAndDropDemoSteps(new DragAndDropPage(Driver));
+            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
+            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
+            var advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
+
+            // Act
+            homePageSteps.OpenPage();
+            homePageSteps.ClickStartPractisingButton();
+            basicExamplesSteps.ClickProceedNextButton();
+            intermediateExamplesSteps.ClickProceedNextButton();
+            advancedExamplesSteps.ClickDragAndDropLink();
+            dragAndDropDemoSteps.DragAndDropAllItems();
+        }
+
+        [Test]
+        [Category("Advanced")]
+        public void Advanced_DragAndDropSlidersTest()
+        {
+            // Arrange
+            CreateDriver();
+            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver), new AdvancedExamplesBlock(Driver)));
+            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
+            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
+            var advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
+            var dragAndDropRangeSlidersSteps = new DragAndDropRangeSlidersSteps(new Pages.DemoPages.DragAndDropRangeSlidersPage(Driver));
+
+            // Act
+            homePageSteps.OpenPage();
+            homePageSteps.ClickStartPractisingButton();
+            basicExamplesSteps.ClickProceedNextButton();
+            intermediateExamplesSteps.ClickProceedNextButton();
+            advancedExamplesSteps.ClickDragAndDropSlidersLink();
+
+            using (new AssertionScope())
+            {
+
             }
         }
     }

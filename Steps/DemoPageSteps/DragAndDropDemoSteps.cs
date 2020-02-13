@@ -6,12 +6,12 @@ namespace SeleniumFrameworkPractise.Steps
 {
     public class DragAndDropDemoSteps
     {
-        DragAndDropDemoPage DragAndDropDemoPage;
+        DragAndDropPage DragAndDropDemoPage;
         
         public IList<IWebElement> ItemsToDragList;
         public IList<IWebElement> DroppedItemsList;
 
-        public DragAndDropDemoSteps(DragAndDropDemoPage dragAndDropDemoPage)
+        public DragAndDropDemoSteps(DragAndDropPage dragAndDropDemoPage)
         {
             this.DragAndDropDemoPage = dragAndDropDemoPage;
         }

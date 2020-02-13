@@ -4,8 +4,8 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 {
     public class BasicCheckboxDemoSteps
     {
-        private BasicCheckboxDemoPage BasicCheckboxDemoPage;
-        public BasicCheckboxDemoSteps(BasicCheckboxDemoPage basicCheckboxDemoPage)
+        private BasicCheckboxPage BasicCheckboxDemoPage;
+        public BasicCheckboxDemoSteps(BasicCheckboxPage basicCheckboxDemoPage)
         {
             this.BasicCheckboxDemoPage = basicCheckboxDemoPage;
         }
