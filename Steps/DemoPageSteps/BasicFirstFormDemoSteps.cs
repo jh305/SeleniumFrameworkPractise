@@ -4,7 +4,7 @@ namespace SeleniumFrameworkPractise.Steps
 {
     public class BasicFirstFormDemoSteps
     {
-        BasicFirstFormPage BasicFirstFormDemoPage;
+        private BasicFirstFormPage BasicFirstFormDemoPage;
 
         public BasicFirstFormDemoSteps(BasicFirstFormPage basicFirstFormDemoPage)
         {

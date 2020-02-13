@@ -5,7 +5,7 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 {
     public class DataListFilterSteps
     {
-        DataListFilterPage DataListFilterPage;
+        private DataListFilterPage DataListFilterPage;
 
         public DataListFilterSteps(DataListFilterPage dataListFilterPage)
         {

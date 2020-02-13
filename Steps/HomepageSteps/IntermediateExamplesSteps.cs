@@ -4,7 +4,7 @@ namespace SeleniumFrameworkPractise.Steps
 {
     public class IntermediateExamplesSteps
     {
-        IntermediateExamplesBlock IntermediateExamplesBlock;
+        private IntermediateExamplesBlock IntermediateExamplesBlock;
 
         public IntermediateExamplesSteps(IntermediateExamplesBlock intermediateExamplesBlock)
         {
