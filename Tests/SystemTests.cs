@@ -162,7 +162,9 @@ namespace SeleniumFrameworkPractise.Tests
 
             using (new AssertionScope())
             {
-
+                dragAndDropRangeSlidersSteps.GetSlider1DefaultText().Should().Be("10");
+                dragAndDropRangeSlidersSteps.GetSlider1CurrentRangeText().Should().Be("10");
+                // ADD ASSERT WHICH MOVES SLIDER
             }
         }
     }
