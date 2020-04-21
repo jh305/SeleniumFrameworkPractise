@@ -4,6 +4,7 @@ using NUnit.Framework;
 using SeleniumFrameworkPractise.Blocks;
 using SeleniumFrameworkPractise.PageObjects;
 using SeleniumFrameworkPractise.Pages;
+using SeleniumFrameworkPractise.Pages.DemoPages;
 using SeleniumFrameworkPractise.Steps;
 using SeleniumFrameworkPractise.Steps.DemoPageSteps;
 
@@ -12,15 +13,36 @@ namespace SeleniumFrameworkPractise.Tests
     [TestFixture]
     public class SystemTests : DriverBase
     {
+        public HomePageSteps homePageSteps;
+        public BasicExamplesSteps basicExamplesSteps;
+        public BasicFirstFormDemoSteps basicFirstFormDemoSteps;
+        public IntermediateExamplesSteps intermediateExamplesSteps;
+        public DataListFilterSteps dataListFilterSteps;
+        public BasicCheckboxDemoSteps basicCheckboxDemoSteps;
+        public JQueryDropDownSearchDemoSteps jQueryropDownSearchDemoSteps;
+        public AdvancedExamplesSteps advancedExamplesSteps;
+        public DragAndDropDemoSteps dragAndDropDemoSteps;
+        public DragAndDropRangeSlidersSteps dragAndDropRangeSlidersSteps;
+
+    [SetUp]
+        public void TestStup()
+        {
+            homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
+            basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
+            intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
+            dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(Driver, new DataListFilterBlock(Driver)));
+            jQueryropDownSearchDemoSteps = new JQueryDropDownSearchDemoSteps(new JQueryDropDownSearchPage(Driver));
+            advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
+            dragAndDropDemoSteps = new DragAndDropDemoSteps(new DragAndDropPage(Driver));
+            dragAndDropRangeSlidersSteps = new DragAndDropRangeSlidersSteps(new DragAndDropRangeSlidersPage(Driver));
+        }
+
         [Test]
         [Category("Basic")]
         public void Basic_InputFieldsTest()
         {
             // Arrange
             CreateDriver();
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver)));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var basicFirstFormDemoSteps = new BasicFirstFormDemoSteps(new BasicFirstFormPage(Driver));
             string expectedText = "This is my string, there are many like it, but this one is mine";
             string notANumber1 = "Sholdnt";
             string notANumber2 = "Work";
@@ -48,9 +70,6 @@ namespace SeleniumFrameworkPractise.Tests
         {
             // Arrange
             CreateDriver();
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver)));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var basicCheckboxDemoSteps = new BasicCheckboxDemoSteps(new BasicCheckboxPage(Driver));
 
             // Act
             homePageSteps.OpenPage();
@@ -71,10 +90,6 @@ namespace SeleniumFrameworkPractise.Tests
         {
             // Arrange
             CreateDriver();
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
-            var dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(Driver, new DataListFilterBlock(Driver)));
             string attendeenName = "Brenda Tree";
 
             // Act
@@ -102,10 +117,6 @@ namespace SeleniumFrameworkPractise.Tests
         {
             // Arrange
             CreateDriver();
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
-            var jQueryropDownSearchDemoSteps = new JQueryropDownSearchDemoSteps(new JQueryDropDownSearchPage(Driver));
 
             // Act
             homePageSteps.OpenPage();
@@ -126,11 +137,6 @@ namespace SeleniumFrameworkPractise.Tests
         {
             // Arrange
             CreateDriver();
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver), new AdvancedExamplesBlock(Driver)));
-            var dragAndDropDemoSteps = new DragAndDropDemoSteps(new DragAndDropPage(Driver));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
-            var advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
 
             // Act
             homePageSteps.OpenPage();
@@ -147,11 +153,6 @@ namespace SeleniumFrameworkPractise.Tests
         {
             // Arrange
             CreateDriver();
-            var homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver), new AdvancedExamplesBlock(Driver)));
-            var basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            var intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
-            var advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
-            var dragAndDropRangeSlidersSteps = new DragAndDropRangeSlidersSteps(new Pages.DemoPages.DragAndDropRangeSlidersPage(Driver));
 
             // Act
             homePageSteps.OpenPage();
