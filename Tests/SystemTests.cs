@@ -7,6 +7,7 @@ using SeleniumFrameworkPractise.Pages;
 using SeleniumFrameworkPractise.Pages.DemoPages;
 using SeleniumFrameworkPractise.Steps;
 using SeleniumFrameworkPractise.Steps.DemoPageSteps;
+using System.Collections.Generic;
 
 namespace SeleniumFrameworkPractise.Tests
 {
@@ -95,18 +96,17 @@ namespace SeleniumFrameworkPractise.Tests
             homePageSteps.OpenPage();
             homePageSteps.ClickStartPractisingButton();
             basicExamplesSteps.ClickProceedNextButton();
-            intermediateExamplesSteps.ClickDataListFilterLink();
+            intermediateExamplesSteps.ClickDataListFilterLink();            
             dataListFilterSteps.SearchForAttendee(attendeenName);
-            SearchResultAttendee searchResultAttendee = dataListFilterSteps.ExtractAttendeeDataOfFirstSearchResult();            
+            List<SearchResultAttendee> SearchResultsAttendeesList = dataListFilterSteps.getResults();           
 
             // Assert
             using (new AssertionScope())
             {
-                searchResultAttendee.CompanyName.Should().Be("Company Name");
-                searchResultAttendee.Name.Should().Be("Brenda Tree");
-                searchResultAttendee.Title.Should().Be("Manager");
-                searchResultAttendee.Phone.Should().Be("644-555-2222");
-                searchResultAttendee.Email.Should().Be("test2@company.com");
+                SearchResultsAttendeesList.Count.Should().Be(1);
+                SearchResultsAttendeesList[0].CompanyName.Should().Be("Company Name");
+                SearchResultsAttendeesList[0].Name.Should().Contain("Brenda Tree");
+                SearchResultsAttendeesList[0].Title.Should().Contain("Manager");
             }
         }
 
