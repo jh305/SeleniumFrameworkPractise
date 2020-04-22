@@ -15,25 +15,29 @@ namespace SeleniumFrameworkPractise.Tests
     {
         public HomePageSteps homePageSteps;
         public BasicExamplesSteps basicExamplesSteps;
-        public BasicFirstFormDemoSteps basicFirstFormDemoSteps;
+        public BasicFirstFormSteps basicFirstFormSteps;
         public IntermediateExamplesSteps intermediateExamplesSteps;
         public DataListFilterSteps dataListFilterSteps;
-        public BasicCheckboxDemoSteps basicCheckboxDemoSteps;
-        public JQueryDropDownSearchDemoSteps jQueryropDownSearchDemoSteps;
+        public BasicCheckboxSteps basicCheckboxSteps;
+        public JQueryDropDownSearchSteps jQueryropDownSearchSteps;
         public AdvancedExamplesSteps advancedExamplesSteps;
-        public DragAndDropDemoSteps dragAndDropDemoSteps;
+        public DragAndDropSteps dragAndDropSteps;
         public DragAndDropRangeSlidersSteps dragAndDropRangeSlidersSteps;
 
     [SetUp]
         public void TestStup()
         {
+            CreateDriver();
+
             homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
             basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
+            basicFirstFormSteps = new BasicFirstFormSteps(new BasicFirstFormPage(Driver));
+            basicCheckboxSteps = new BasicCheckboxSteps(new BasicCheckboxPage(Driver));
             intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
             dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(Driver, new DataListFilterBlock(Driver)));
-            jQueryropDownSearchDemoSteps = new JQueryDropDownSearchDemoSteps(new JQueryDropDownSearchPage(Driver));
+            jQueryropDownSearchSteps = new JQueryDropDownSearchSteps(new JQueryDropDownSearchPage(Driver));
             advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
-            dragAndDropDemoSteps = new DragAndDropDemoSteps(new DragAndDropPage(Driver));
+            dragAndDropSteps = new DragAndDropSteps(new DragAndDropPage(Driver));
             dragAndDropRangeSlidersSteps = new DragAndDropRangeSlidersSteps(new DragAndDropRangeSlidersPage(Driver));
         }
 
@@ -42,7 +46,6 @@ namespace SeleniumFrameworkPractise.Tests
         public void Basic_InputFieldsTest()
         {
             // Arrange
-            CreateDriver();
             string expectedText = "This is my string, there are many like it, but this one is mine";
             string notANumber1 = "Sholdnt";
             string notANumber2 = "Work";
@@ -58,9 +61,9 @@ namespace SeleniumFrameworkPractise.Tests
             // Assert
             using (new AssertionScope())
             {
-                basicFirstFormDemoSteps.EnterCharactersAndReturnDisplayedCharacters(expectedText).Should().Be(expectedText);
-                basicFirstFormDemoSteps.EnterCharactersAndReturnDisplayedSumOfCharacters(notANumber1, notANumber2).Should().Be("NaN");
-                basicFirstFormDemoSteps.EnterCharactersAndReturnDisplayedSumOfCharacters(isANumber1, isANumber2).Should().Be(expectedSum);
+                basicFirstFormSteps.EnterCharactersAndReturnDisplayedCharacters(expectedText).Should().Be(expectedText);
+                basicFirstFormSteps.EnterCharactersAndReturnDisplayedSumOfCharacters(notANumber1, notANumber2).Should().Be("NaN");
+                basicFirstFormSteps.EnterCharactersAndReturnDisplayedSumOfCharacters(isANumber1, isANumber2).Should().Be(expectedSum);
             }
         }
 
@@ -68,9 +71,6 @@ namespace SeleniumFrameworkPractise.Tests
         [Category("Basic")]
         public void Basic_CheckBoxTest()
         {
-            // Arrange
-            CreateDriver();
-
             // Act
             homePageSteps.OpenPage();
             homePageSteps.ClickStartPractisingButton();
@@ -79,8 +79,8 @@ namespace SeleniumFrameworkPractise.Tests
             // Assert
             using (new AssertionScope())
             {
-                basicCheckboxDemoSteps.SingleCheckboxTest().Should().BeTrue();
-                basicCheckboxDemoSteps.MultipleCheckboxTest().Should().BeTrue();
+                basicCheckboxSteps.SingleCheckboxTest().Should().BeTrue();
+                basicCheckboxSteps.MultipleCheckboxTest().Should().BeTrue();
             }
         }
 
@@ -89,7 +89,6 @@ namespace SeleniumFrameworkPractise.Tests
         public void Intermediate_DataListFilterTest()
         {
             // Arrange
-            CreateDriver();
             string attendeenName = "Brenda Tree";
 
             // Act
@@ -115,9 +114,6 @@ namespace SeleniumFrameworkPractise.Tests
         [Category("Intermediate")]
         public void Intermediate_JQueryDropDown()
         {
-            // Arrange
-            CreateDriver();
-
             // Act
             homePageSteps.OpenPage();
             homePageSteps.ClickStartPractisingButton();
@@ -127,7 +123,7 @@ namespace SeleniumFrameworkPractise.Tests
             // Assert
             using (new AssertionScope())
             {
-                jQueryropDownSearchDemoSteps.DropDownWithSearchBoxTest("Denmark").Should().BeTrue();
+                jQueryropDownSearchSteps.DropDownWithSearchBoxTest("Denmark").Should().BeTrue();
             }
         }
 
@@ -135,25 +131,19 @@ namespace SeleniumFrameworkPractise.Tests
         [Category("Advanced")]
         public void Advanced_DragAndDropTest()
         {
-            // Arrange
-            CreateDriver();
-
             // Act
             homePageSteps.OpenPage();
             homePageSteps.ClickStartPractisingButton();
             basicExamplesSteps.ClickProceedNextButton();
             intermediateExamplesSteps.ClickProceedNextButton();
             advancedExamplesSteps.ClickDragAndDropLink();
-            dragAndDropDemoSteps.DragAndDropAllItems();
+            dragAndDropSteps.DragAndDropAllItems();
         }
 
         [Test]
         [Category("Advanced")]
         public void Advanced_DragAndDropSlidersTest()
         {
-            // Arrange
-            CreateDriver();
-
             // Act
             homePageSteps.OpenPage();
             homePageSteps.ClickStartPractisingButton();

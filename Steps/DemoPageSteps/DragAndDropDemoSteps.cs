@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace SeleniumFrameworkPractise.Steps
 {
-    public class DragAndDropDemoSteps
+    public class DragAndDropSteps
     {
         private DragAndDropPage DragAndDropDemoPage;
         
         public IList<IWebElement> ItemsToDragList;
         public IList<IWebElement> DroppedItemsList;
 
-        public DragAndDropDemoSteps(DragAndDropPage dragAndDropDemoPage)
+        public DragAndDropSteps(DragAndDropPage dragAndDropDemoPage)
         {
             this.DragAndDropDemoPage = dragAndDropDemoPage;
         }

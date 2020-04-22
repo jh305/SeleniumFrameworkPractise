@@ -2,11 +2,11 @@
 
 namespace SeleniumFrameworkPractise.Steps
 {
-    public class BasicFirstFormDemoSteps
+    public class BasicFirstFormSteps
     {
         private BasicFirstFormPage BasicFirstFormDemoPage;
 
-        public BasicFirstFormDemoSteps(BasicFirstFormPage basicFirstFormDemoPage)
+        public BasicFirstFormSteps(BasicFirstFormPage basicFirstFormDemoPage)
         {
             this.BasicFirstFormDemoPage = basicFirstFormDemoPage;
         }
