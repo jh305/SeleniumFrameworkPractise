@@ -9,13 +9,13 @@ namespace SeleniumFrameworkPractise.Blocks
         {
             this.Driver = driver;
         }
-        IWebElement GetProceedNextButtonElement() =>
+        private IWebElement GetProceedNextButtonElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#btn_inter_example")));
 
-        IWebElement GetSimpleFormDemoLinkElement() =>
+        private IWebElement GetSimpleFormDemoLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(1)")));
 
-        IWebElement GetCheckboxDemoLinkElement() =>
+        private IWebElement GetCheckboxDemoLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(2)")));
 
         public void ClickProceedNextElement()

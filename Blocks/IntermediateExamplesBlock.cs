@@ -11,13 +11,13 @@ namespace SeleniumFrameworkPractise.Blocks
             this.Driver = driver;
         }
 
-        IWebElement GetProceedNextButtonElement() =>
+        private IWebElement GetProceedNextButtonElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#btn_advanced_example")));
 
-        IWebElement GetDataListFilterLinkElement() =>
+        private IWebElement GetDataListFilterLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(6)")));
 
-        IWebElement GetJQuerySelectDropDownLinkElement() =>
+        private IWebElement GetJQuerySelectDropDownLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(3)")));
 
         public void ClickProceedNextButton()

@@ -4,7 +4,6 @@ using NUnit.Framework;
 using SeleniumFrameworkPractise.Blocks;
 using SeleniumFrameworkPractise.PageObjects;
 using SeleniumFrameworkPractise.Pages;
-using SeleniumFrameworkPractise.Pages.DemoPages;
 using SeleniumFrameworkPractise.Steps;
 using SeleniumFrameworkPractise.Steps.DemoPageSteps;
 using System.Collections.Generic;
@@ -19,11 +18,6 @@ namespace SeleniumFrameworkPractise.Tests
         public BasicFirstFormSteps basicFirstFormSteps;
         public IntermediateExamplesSteps intermediateExamplesSteps;
         public DataListFilterSteps dataListFilterSteps;
-        public BasicCheckboxSteps basicCheckboxSteps;
-        public JQueryDropDownSearchSteps jQueryropDownSearchSteps;
-        public AdvancedExamplesSteps advancedExamplesSteps;
-        public DragAndDropSteps dragAndDropSteps;
-        public DragAndDropRangeSlidersSteps dragAndDropRangeSlidersSteps;
 
     [SetUp]
         public void TestStup()
@@ -33,13 +27,8 @@ namespace SeleniumFrameworkPractise.Tests
             homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
             basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
             basicFirstFormSteps = new BasicFirstFormSteps(new BasicFirstFormPage(Driver));
-            basicCheckboxSteps = new BasicCheckboxSteps(new BasicCheckboxPage(Driver));
             intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
             dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(Driver, new DataListFilterBlock(Driver)));
-            jQueryropDownSearchSteps = new JQueryDropDownSearchSteps(new JQueryDropDownSearchPage(Driver));
-            advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
-            dragAndDropSteps = new DragAndDropSteps(new DragAndDropPage(Driver));
-            dragAndDropRangeSlidersSteps = new DragAndDropRangeSlidersSteps(new DragAndDropRangeSlidersPage(Driver));
         }
 
         [Test]
@@ -69,24 +58,7 @@ namespace SeleniumFrameworkPractise.Tests
         }
 
         [Test]
-        [Category("Basic")]
-        public void Basic_CheckBoxTest()
-        {
-            // Act
-            homePageSteps.OpenPage();
-            homePageSteps.ClickStartPractisingButton();
-            basicExamplesSteps.ClickCheckboxDemoLink();
-
-            // Assert
-            using (new AssertionScope())
-            {
-                basicCheckboxSteps.SingleCheckboxTest().Should().BeTrue();
-                basicCheckboxSteps.MultipleCheckboxTest().Should().BeTrue();
-            }
-        }
-
-        [Test]
-        [Category("Intermediate")]
+        [Category("Intermediate")] //DONE
         public void Intermediate_DataListFilterTest()
         {
             // Arrange
@@ -111,52 +83,10 @@ namespace SeleniumFrameworkPractise.Tests
         }
 
         [Test]
-        [Category("Intermediate")]
-        public void Intermediate_JQueryDropDown()
-        {
-            // Act
-            homePageSteps.OpenPage();
-            homePageSteps.ClickStartPractisingButton();
-            basicExamplesSteps.ClickProceedNextButton();
-            intermediateExamplesSteps.ClickJQuerySelectDropDownLink();
-
-            // Assert
-            using (new AssertionScope())
-            {
-                jQueryropDownSearchSteps.DropDownWithSearchBoxTest("Denmark").Should().BeTrue();
-            }
-        }
-
-        [Test]
         [Category("Advanced")]
-        public void Advanced_DragAndDropTest()
+        public void Advanced_TODO()
         {
-            // Act
-            homePageSteps.OpenPage();
-            homePageSteps.ClickStartPractisingButton();
-            basicExamplesSteps.ClickProceedNextButton();
-            intermediateExamplesSteps.ClickProceedNextButton();
-            advancedExamplesSteps.ClickDragAndDropLink();
-            dragAndDropSteps.DragAndDropAllItems();
-        }
 
-        [Test]
-        [Category("Advanced")]
-        public void Advanced_DragAndDropSlidersTest()
-        {
-            // Act
-            homePageSteps.OpenPage();
-            homePageSteps.ClickStartPractisingButton();
-            basicExamplesSteps.ClickProceedNextButton();
-            intermediateExamplesSteps.ClickProceedNextButton();
-            advancedExamplesSteps.ClickDragAndDropSlidersLink();
-
-            using (new AssertionScope())
-            {
-                dragAndDropRangeSlidersSteps.GetSlider1DefaultText().Should().Be("10");
-                dragAndDropRangeSlidersSteps.GetSlider1CurrentRangeText().Should().Be("10");
-                // ADD ASSERT WHICH MOVES SLIDER
-            }
         }
     }
 }
