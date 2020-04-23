@@ -4,7 +4,7 @@ using SeleniumFrameworkPractise.Settings;
 
 namespace SeleniumFrameworkPractise.Pages
 {
-    public class HomePage : PageBase
+    public class Homepage : PageBase
     {
         private IWebDriver Driver;
 
@@ -12,21 +12,7 @@ namespace SeleniumFrameworkPractise.Pages
         public IntermediateExamplesBlock IntermediateExamplesBlock;
         public AdvancedExamplesBlock AdvancedxamplesBlock;
 
-        public HomePage(IWebDriver driver, BasicExamplesBlock basicExamplesBlock, IntermediateExamplesBlock intermediateExamplesBlock, AdvancedExamplesBlock advancedExamplesBlock) : base(driver)
-        {
-            this.Driver = driver;
-            this.BasicExamplesBlock = basicExamplesBlock;
-            this.IntermediateExamplesBlock = intermediateExamplesBlock;
-            this.AdvancedxamplesBlock = advancedExamplesBlock;
-        }
-
-        public HomePage(IWebDriver driver, BasicExamplesBlock basicExamplesBlock) : base(driver)
-        {
-            this.Driver = driver;
-            this.BasicExamplesBlock = basicExamplesBlock;
-        }
-
-        public HomePage(IWebDriver driver, BasicExamplesBlock basicExamplesBlock, IntermediateExamplesBlock intermediateExamplesBlock) : base(driver)
+        public Homepage(IWebDriver driver, BasicExamplesBlock basicExamplesBlock, IntermediateExamplesBlock intermediateExamplesBlock) : base(driver)
         {
             this.Driver = driver;
             this.BasicExamplesBlock = basicExamplesBlock;
@@ -43,6 +29,6 @@ namespace SeleniumFrameworkPractise.Pages
         }
 
         public void NavigateToPage() =>
-            Driver.Url = TestSettings.TestUrl;
+            Driver.Url = TestSettings.SeleniumEasyUrl;
     }
 }

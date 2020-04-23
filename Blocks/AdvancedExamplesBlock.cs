@@ -11,26 +11,15 @@ namespace SeleniumFrameworkPractise.Blocks
             this.Driver = driver;
         }
 
-        private IWebElement GetDragAndDropSlidersLinkElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#advanced > div > a:nth-child(8)")));
-
-        private IWebElement GetDragAndDropLinkElement() =>
+        private IWebElement GetTableDataSearchLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#advanced > div > a:nth-child(9)")));
 
-        public void ClickDragAndDropSlidersLinkElement()
+        public void ClickTableDataSearchElement()
         {
             Wait.Until(condition =>
-                WaitForElementToBeVisible(GetDragAndDropSlidersLinkElement()));
+                WaitForElementToBeVisible(GetTableDataSearchLinkElement()));
 
-            GetDragAndDropSlidersLinkElement().Click();
+            GetTableDataSearchLinkElement().Click();
         }
-
-        public void ClickDragAndDropLinkElement()
-        {
-            Wait.Until(condition =>
-                WaitForElementToBeVisible(GetDragAndDropLinkElement()));
-
-            GetDragAndDropLinkElement().Click();
-        }            
     }
 }

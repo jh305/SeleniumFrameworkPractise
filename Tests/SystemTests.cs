@@ -4,6 +4,7 @@ using NUnit.Framework;
 using SeleniumFrameworkPractise.Blocks;
 using SeleniumFrameworkPractise.PageObjects;
 using SeleniumFrameworkPractise.Pages;
+using SeleniumFrameworkPractise.Pages.DemoPages;
 using SeleniumFrameworkPractise.Steps;
 using SeleniumFrameworkPractise.Steps.DemoPageSteps;
 using System.Collections.Generic;
@@ -17,18 +18,22 @@ namespace SeleniumFrameworkPractise.Tests
         public BasicExamplesSteps basicExamplesSteps;
         public BasicFirstFormSteps basicFirstFormSteps;
         public IntermediateExamplesSteps intermediateExamplesSteps;
+        public AdvancedExamplesSteps advancedExamplesSteps;
         public DataListFilterSteps dataListFilterSteps;
+        public TableDataSearchSteps tableDataSearchSteps;
 
     [SetUp]
-        public void TestStup()
+        public void TestSetup()
         {
             CreateDriver();
 
-            homePageSteps = new HomePageSteps(new HomePage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
+            homePageSteps = new HomePageSteps(new Homepage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
             basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
             basicFirstFormSteps = new BasicFirstFormSteps(new BasicFirstFormPage(Driver));
             intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
             dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(Driver, new DataListFilterBlock(Driver)));
+            advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
+            tableDataSearchSteps = new TableDataSearchSteps(new TableDataSearchPage(Driver));
         }
 
         [Test]
@@ -58,7 +63,7 @@ namespace SeleniumFrameworkPractise.Tests
         }
 
         [Test]
-        [Category("Intermediate")] //DONE
+        [Category("Intermediate")]
         public void Intermediate_DataListFilterTest()
         {
             // Arrange
@@ -86,7 +91,16 @@ namespace SeleniumFrameworkPractise.Tests
         [Category("Advanced")]
         public void Advanced_TODO()
         {
+            // Arrange
 
+            // Act
+            homePageSteps.OpenPage();
+            homePageSteps.ClickStartPractisingButton();
+            basicExamplesSteps.ClickProceedNextButton();
+            intermediateExamplesSteps.ClickProceedNextButton();
+            advancedExamplesSteps.ClickTableDataSearchLink();
+
+            // Assert
         }
     }
 }

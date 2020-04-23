@@ -4,7 +4,7 @@ namespace SeleniumFrameworkPractise.Pages
 {
     public class BasicFirstFormPage : PageBase
     {
-        IWebDriver Driver;
+        private IWebDriver Driver;
 
         public BasicFirstFormPage(IWebDriver driver) : base(driver)
         {

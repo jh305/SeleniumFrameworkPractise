@@ -4,9 +4,9 @@ namespace SeleniumFrameworkPractise.Steps
 {
     public class HomePageSteps
     {
-        private HomePage Homepage;
+        private Homepage Homepage;
 
-        public HomePageSteps(HomePage homepage)
+        public HomePageSteps(Homepage homepage)
         {
             this.Homepage = homepage;
         }
