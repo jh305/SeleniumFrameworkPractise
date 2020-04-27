@@ -30,6 +30,8 @@ namespace SeleniumFrameworkPractise.Blocks
         {
             try
             {
+                Wait.Until(Driver => (bool)((IJavaScriptExecutor)Driver).ExecuteScript("return jQuery.active == 0"));
+
                 //get search results element
                 IWebElement SearchResultsElement = GetTableSearchResultsElement();
 
