@@ -33,7 +33,7 @@ namespace SeleniumFrameworkPractise.Tests
             intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
             dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(Driver, new DataListFilterBlock(Driver)));
             advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
-            tableDataSearchSteps = new TableDataSearchSteps(new TableDataSearchPage(Driver));
+            tableDataSearchSteps = new TableDataSearchSteps(new TableDataSearchPage(Driver, new TableDataSearchBlock(Driver)));
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace SeleniumFrameworkPractise.Tests
             basicExamplesSteps.ClickProceedNextButton();
             intermediateExamplesSteps.ClickDataListFilterLink();            
             dataListFilterSteps.SearchForAttendee(attendeenName);
-            List<SearchResultAttendee> SearchResultsAttendeesList = dataListFilterSteps.getResults();           
+            List<SearchResultAttendee> SearchResultsAttendeesList = dataListFilterSteps.GetDataListSearchResults();           
 
             // Assert
             using (new AssertionScope())
@@ -91,16 +91,24 @@ namespace SeleniumFrameworkPractise.Tests
         [Category("Advanced")]
         public void Advanced_TODO()
         {
-            // Arrange
-
             // Act
             homePageSteps.OpenPage();
             homePageSteps.ClickStartPractisingButton();
             basicExamplesSteps.ClickProceedNextButton();
             intermediateExamplesSteps.ClickProceedNextButton();
             advancedExamplesSteps.ClickTableDataSearchLink();
+            tableDataSearchSteps.SearchForTaskAssigneeStatus("jOHN sMITH");
+            List<SearchResultTask> SerachResultsTaskList = tableDataSearchSteps.GetDataSearchResults();
 
             // Assert
+            using (new AssertionScope())
+            {
+                SerachResultsTaskList.Count.Should().Be(1);
+                SerachResultsTaskList[0].Number.Should().Be("");
+                SerachResultsTaskList[0].Name.Should().Be("");
+                SerachResultsTaskList[0].Assignee.Should().Be("");
+                SerachResultsTaskList[0].Status.Should().Be("");
+            }
         }
     }
 }

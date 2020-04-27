@@ -16,7 +16,7 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
         public void SearchForAttendee(string attendeeName) =>
             DataListFilterPage.EnterAttendeeNameIntoFilter(attendeeName);
 
-        public List<SearchResultAttendee> getResults() =>
+        public List<SearchResultAttendee> GetDataListSearchResults() =>
             DataListFilterPage.getResults();
     }
 }

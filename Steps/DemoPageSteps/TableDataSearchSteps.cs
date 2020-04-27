@@ -1,6 +1,8 @@
 ﻿
 
+using SeleniumFrameworkPractise.PageObjects;
 using SeleniumFrameworkPractise.Pages.DemoPages;
+using System.Collections.Generic;
 
 namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 {
@@ -15,5 +17,8 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 
         public void SearchForTaskAssigneeStatus(string taskOrAssigneeOrStatus) =>
             TableDataSearchPage.EnterTextIntoTasksInputField(taskOrAssigneeOrStatus);
+
+        public List<SearchResultTask> GetDataSearchResults() =>
+            TableDataSearchPage.ReturnSearchResults();
     }
 }

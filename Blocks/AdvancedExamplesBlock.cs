@@ -12,7 +12,7 @@ namespace SeleniumFrameworkPractise.Blocks
         }
 
         private IWebElement GetTableDataSearchLinkElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#advanced > div > a:nth-child(9)")));
+            Wait.Until(d => d.FindElement(By.CssSelector("#advanced > div > a:nth-child(2)")));
 
         public void ClickTableDataSearchElement()
         {

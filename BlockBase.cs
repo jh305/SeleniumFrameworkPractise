@@ -42,5 +42,11 @@ namespace SeleniumFrameworkPractise
                 return false;
             }
         }
+
+        public void ClearAndSendKeys(IWebElement element, string text)
+        {
+            element.Clear();
+            element.SendKeys(text);
+        }
     }
 }
