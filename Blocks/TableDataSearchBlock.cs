@@ -14,6 +14,7 @@ namespace SeleniumFrameworkPractise.Blocks
         public TableDataSearchBlock(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
+            this.SearchResults = new List<SearchResultTask>();
         }
 
         private IWebElement GetTasksInputFieldElement() =>
@@ -50,12 +51,13 @@ namespace SeleniumFrameworkPractise.Blocks
                 foreach (IWebElement element in VisibleResultElements)
                 {
                     ReadOnlyCollection<IWebElement> SearchResultValues = element.FindElements(By.TagName("td"));
+
                     SearchResults.Add(new SearchResultTask()
                     {
                         Number = SearchResultValues[0].Text,
-                        Name = SearchResultValues[0].Text,
-                        Assignee = SearchResultValues[0].Text,
-                        Status = SearchResultValues[0].Text
+                        Name = SearchResultValues[1].Text,
+                        Assignee = SearchResultValues[2].Text,
+                        Status = SearchResultValues[3].Text
                     });
                 }
 
@@ -67,4 +69,4 @@ namespace SeleniumFrameworkPractise.Blocks
             }
         }
     }
-}
+} 

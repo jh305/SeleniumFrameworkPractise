@@ -89,7 +89,7 @@ namespace SeleniumFrameworkPractise.Tests
 
         [Test]
         [Category("Advanced")]
-        public void Advanced_TODO()
+        public void Advanced_TableDataSearchTest()
         {
             // Act
             homePageSteps.OpenPage();
@@ -104,10 +104,10 @@ namespace SeleniumFrameworkPractise.Tests
             using (new AssertionScope())
             {
                 SerachResultsTaskList.Count.Should().Be(1);
-                SerachResultsTaskList[0].Number.Should().Be("");
-                SerachResultsTaskList[0].Name.Should().Be("");
-                SerachResultsTaskList[0].Assignee.Should().Be("");
-                SerachResultsTaskList[0].Status.Should().Be("");
+                SerachResultsTaskList[0].Number.Should().Be("1");
+                SerachResultsTaskList[0].Name.Should().Be("Wireframes");
+                SerachResultsTaskList[0].Assignee.Should().Be("John Smith");
+                SerachResultsTaskList[0].Status.Should().Be("in progress");
             }
         }
     }
