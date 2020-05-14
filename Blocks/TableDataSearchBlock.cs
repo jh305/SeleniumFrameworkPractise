@@ -43,7 +43,7 @@ namespace SeleniumFrameworkPractise.Blocks
                 foreach (IWebElement element in SearchResultElements)
                 {
                     //Put them into a list if they are visible
-                    if (element.GetAttribute("style") == "")
+                    if (element.GetAttribute("style") != "display: none;")
                     {
                         VisibleResultElements.Add(element);
                     }
