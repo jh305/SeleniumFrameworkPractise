@@ -23,8 +23,13 @@ namespace SeleniumFrameworkPractise.Blocks
         private IWebElement GetTableSearchResultsElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#task-table > tbody")));
 
-        public void EnterTextIntoTasksInputField(string text) =>
+        public void EnterTextIntoTasksInputField(string text)
+        {
+            GetTasksInputFieldElement().Click();
             ClearAndSendKeys(GetTasksInputFieldElement(), text);
+            GetTasksInputFieldElement().Click();
+        }
+            
 
         public List<SearchResultTask> ExtractVisibleResultsFromSearchTable()
         {
