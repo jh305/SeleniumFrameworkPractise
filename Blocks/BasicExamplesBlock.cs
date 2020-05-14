@@ -38,10 +38,19 @@ namespace SeleniumFrameworkPractise.Blocks
 
         public void ClickSimpleFormDemoLink()
         {
-            Wait.Until(condition =>
+            try
+            {
+                Wait.Until(condition =>
                 WaitForElementToBeVisible(GetSimpleFormDemoLinkElement()));
 
-            GetSimpleFormDemoLinkElement().Click();
+                GetSimpleFormDemoLinkElement().Click();
+            }
+            catch(ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetSimpleFormDemoLinkElement().Click();
+            }
+            
         }
 
         public void ClickCheckboxDemoLink()
