@@ -47,8 +47,18 @@ namespace SeleniumFrameworkPractise.Pages
         public void InputCharactersIntoInputB(string text) =>
             ClearAndSendKeys(GetEnterBInputElement(), text);
 
-        public void ClickGetTotalButton() =>
-            GetGetTotalButtonElement().Click();
+        public void ClickGetTotalButton()
+        {
+            try
+            {
+                GetGetTotalButtonElement().Click();
+            }
+            catch (ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetGetTotalButtonElement().Click();
+            }
+        }
 
         public string GetTotalOfInputsText() =>
             GetDisplayValueElement().Text;

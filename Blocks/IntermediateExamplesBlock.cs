@@ -22,20 +22,36 @@ namespace SeleniumFrameworkPractise.Blocks
 
         public void ClickProceedNextButton()
         {
-            Wait.Until(condition =>
-                WaitForElementToBeVisible(GetProceedNextButtonElement()));
+            try
+            {
+                Wait.Until(condition =>
+                    WaitForElementToBeVisible(GetProceedNextButtonElement()));
 
-            ScrollElementIntoView(GetProceedNextButtonElement());
-            GetProceedNextButtonElement().Click();
+                ScrollElementIntoView(GetProceedNextButtonElement());
+                GetProceedNextButtonElement().Click();
+            }
+            catch (ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetProceedNextButtonElement().Click();
+            }            
         }
 
         public void ClickDataListFilterLink()
         {
-            Wait.Until(condition =>
-                WaitForElementToBeVisible(GetDataListFilterLinkElement()));
+            try
+            {
+                Wait.Until(condition =>
+                    WaitForElementToBeVisible(GetDataListFilterLinkElement()));
 
-            ScrollElementIntoView(GetDataListFilterLinkElement());
-            GetDataListFilterLinkElement().Click();
+                ScrollElementIntoView(GetDataListFilterLinkElement());
+                GetDataListFilterLinkElement().Click();
+            }
+            catch (ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetDataListFilterLinkElement().Click();
+            }            
         }
 
         public void ClickJQuerySelectDropDownLink()

@@ -16,10 +16,18 @@ namespace SeleniumFrameworkPractise.Blocks
 
         public void ClickTableDataSearchElement()
         {
-            Wait.Until(condition =>
-                WaitForElementToBeVisible(GetTableDataSearchLinkElement()));
+            try
+            {
+                Wait.Until(condition =>
+                    WaitForElementToBeVisible(GetTableDataSearchLinkElement()));
 
-            GetTableDataSearchLinkElement().Click();
+                GetTableDataSearchLinkElement().Click();
+            }
+            catch (ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetTableDataSearchLinkElement().Click();
+            }
         }
     }
 }

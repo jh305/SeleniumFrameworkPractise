@@ -20,11 +20,19 @@ namespace SeleniumFrameworkPractise.Blocks
 
         public void ClickProceedNextElement()
         {
-            Wait.Until(condition => 
+            try
+            {
+                Wait.Until(condition =>
                 WaitForElementToBeVisible(GetProceedNextButtonElement()));
 
-            ScrollElementIntoView(GetProceedNextButtonElement());
-            GetProceedNextButtonElement().Click();
+                ScrollElementIntoView(GetProceedNextButtonElement());
+                GetProceedNextButtonElement().Click();
+            }
+            catch (ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetProceedNextButtonElement().Click();
+            }            
         }
 
         public void ClickSimpleFormDemoLink()

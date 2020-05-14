@@ -24,8 +24,17 @@ namespace SeleniumFrameworkPractise.Pages
 
         public void ClickStartPractisingElement()
         {
-            ScrollElementIntoView(GetStartPractisingButtonElement());
-            GetStartPractisingButtonElement().Click();
+            try
+            {
+                ScrollElementIntoView(GetStartPractisingButtonElement());
+                GetStartPractisingButtonElement().Click();
+            }
+            catch (ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetStartPractisingButtonElement().Click();
+            }
+            
         }
 
         public void NavigateToPage() =>

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumFrameworkPractise.Pages.Popups;
 using System;
 
 namespace SeleniumFrameworkPractise
@@ -10,10 +11,13 @@ namespace SeleniumFrameworkPractise
 
         public WebDriverWait Wait;
 
+        private LearnSeleniumPopup LearnSeleniumPopup;
+
         public BlockBase(IWebDriver driver)
         {
             this.Driver = driver;
             this.Wait = GetWait();
+            this.LearnSeleniumPopup = new LearnSeleniumPopup(Driver);
         }
 
         public WebDriverWait GetWait()
@@ -47,6 +51,14 @@ namespace SeleniumFrameworkPractise
         {
             element.Clear();
             element.SendKeys(text);
+        }
+
+        public void ClosePopupWindow()
+        {
+            if (LearnSeleniumPopup.IsPopupVisible() == true)
+            {
+                LearnSeleniumPopup.ClosePopupWindow();
+            }            
         }
     }
 }
