@@ -4,7 +4,7 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class AdvancedExamplesBlock: BlockBase
     {
-        IWebDriver Driver;
+        private IWebDriver Driver;
 
         public AdvancedExamplesBlock(IWebDriver driver) : base(driver)
         {

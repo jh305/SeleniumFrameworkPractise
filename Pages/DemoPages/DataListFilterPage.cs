@@ -7,7 +7,7 @@ namespace SeleniumFrameworkPractise.Pages
 {
     public class DataListFilterPage : PageBase
     {
-        IWebDriver Driver;
+        private IWebDriver Driver;
 
         DataListFilterBlock DataListFilterBlock;
 

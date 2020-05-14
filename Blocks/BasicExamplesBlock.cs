@@ -4,7 +4,8 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class BasicExamplesBlock : BlockBase
     {
-        IWebDriver Driver;
+        private IWebDriver Driver;
+
         public BasicExamplesBlock(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
@@ -23,7 +24,7 @@ namespace SeleniumFrameworkPractise.Blocks
             try
             {
                 Wait.Until(condition =>
-                WaitForElementToBeVisible(GetProceedNextButtonElement()));
+                    WaitForElementToBeVisible(GetProceedNextButtonElement()));
 
                 ScrollElementIntoView(GetProceedNextButtonElement());
                 GetProceedNextButtonElement().Click();

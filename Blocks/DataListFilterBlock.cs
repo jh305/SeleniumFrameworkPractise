@@ -1,16 +1,14 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using SeleniumFrameworkPractise.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Dynamic;
 
 namespace SeleniumFrameworkPractise.Blocks
 {
     public class DataListFilterBlock : BlockBase
     {
-        IWebDriver Driver;
+        private IWebDriver Driver;
 
         private List<SearchResultAttendee> SearchResults;
 

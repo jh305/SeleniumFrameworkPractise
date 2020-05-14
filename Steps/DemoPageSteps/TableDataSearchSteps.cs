@@ -1,6 +1,4 @@
-﻿
-
-using SeleniumFrameworkPractise.PageObjects;
+﻿using SeleniumFrameworkPractise.PageObjects;
 using SeleniumFrameworkPractise.Pages.DemoPages;
 using System.Collections.Generic;
 

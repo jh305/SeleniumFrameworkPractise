@@ -4,7 +4,7 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class IntermediateExamplesBlock : BlockBase
     {
-        IWebDriver Driver;
+        private IWebDriver Driver;
 
         public IntermediateExamplesBlock(IWebDriver driver) : base(driver)
         {
