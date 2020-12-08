@@ -18,7 +18,7 @@ namespace SeleniumFrameworkPractise.Pages
         }
 
         private IWebElement GetSearchAttendeesInputElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#input-search")));
+            WaitAndReturnElement("#input-search");
 
         public void EnterAttendeeNameIntoFilter(string text) =>
             ClearAndSendKeys(GetSearchAttendeesInputElement(), text);

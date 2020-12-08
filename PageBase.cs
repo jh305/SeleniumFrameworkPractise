@@ -53,5 +53,13 @@ namespace SeleniumFrameworkPractise
                 return false;
             }
         }
+
+        private IWebElement GetSlider1CurrentRangeElement() =>
+            Driver.FindElement(By.CssSelector("#slider1 > div.range > output#range"));
+
+        protected IWebElement WaitAndReturnElement(string cssSelector) => 
+            Wait.Until(d => ReturnElement(cssSelector));
+
+        protected IWebElement ReturnElement(string cssSelector) => Driver.FindElement(By.CssSelector(cssSelector));
     }
 }

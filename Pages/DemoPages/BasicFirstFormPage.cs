@@ -12,25 +12,25 @@ namespace SeleniumFrameworkPractise.Pages
         }
 
         private IWebElement GetEnterMessageInputElement() =>
-            Driver.FindElement(By.CssSelector("#user-message"));
+            WaitAndReturnElement("#user-message");
 
         private IWebElement GetShowMessageButtonElement() =>
-            Driver.FindElement(By.CssSelector("#get-input > button"));
+            WaitAndReturnElement("#get-input > button");
 
         private IWebElement GetYourMessageElement() =>
-            Driver.FindElement(By.CssSelector("#display"));
+            WaitAndReturnElement("#display");
 
         private IWebElement GetEnterAInputElement() =>
-            Driver.FindElement(By.CssSelector("#sum1"));
+            WaitAndReturnElement("#sum1");
 
         private IWebElement GetEnterBInputElement() =>
-            Driver.FindElement(By.CssSelector("#sum2"));
+            WaitAndReturnElement("#sum2");
 
         private IWebElement GetGetTotalButtonElement() =>
-            Driver.FindElement(By.CssSelector("#gettotal > button"));
+            WaitAndReturnElement("#gettotal > button");
 
         private IWebElement GetDisplayValueElement() =>
-            Driver.FindElement(By.CssSelector("#displayvalue"));
+            WaitAndReturnElement("#displayvalue");
 
         public void InputMessage(string text) =>
             ClearAndSendKeys(GetEnterMessageInputElement(), text);

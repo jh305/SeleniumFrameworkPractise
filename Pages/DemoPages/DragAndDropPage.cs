@@ -13,13 +13,13 @@ namespace SeleniumFrameworkPractise.Pages
         }
 
         private IWebElement GetItemsToDragElement() =>
-            Driver.FindElement(By.CssSelector("#todrag"));
+            WaitAndReturnElement("#todrag");
 
         private IWebElement GetDroppedItemsElement() =>
-            Driver.FindElement(By.CssSelector("#droppedlist"));
+            WaitAndReturnElement("#droppedlist");
 
         private IWebElement GetDropZoneElement() =>
-            Driver.FindElement(By.CssSelector("#mydropzone"));
+            WaitAndReturnElement("mydropzone");
 
         public IList<IWebElement> GetAllElementsInItemsToDragList() =>
             GetItemsToDragElement().FindElements(By.TagName("span"));
