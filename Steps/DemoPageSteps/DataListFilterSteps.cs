@@ -1,5 +1,6 @@
 ﻿using SeleniumFrameworkPractise.PageObjects;
 using SeleniumFrameworkPractise.Pages;
+using System.Collections.Generic;
 
 namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 {
@@ -12,10 +13,10 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
             this.DataListFilterPage = dataListFilterPage;
         }
 
-        public SearchResultAttendee ExtractAttendeeDataOfFirstSearchResult() =>
-            DataListFilterPage.ReturnResultOfSearchObject();
-
         public void SearchForAttendee(string attendeeName) =>
             DataListFilterPage.EnterAttendeeNameIntoFilter(attendeeName);
+
+        public List<SearchResultAttendee> GetDataListSearchResults() =>
+            DataListFilterPage.getResults();
     }
 }

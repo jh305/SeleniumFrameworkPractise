@@ -4,35 +4,53 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class BasicExamplesBlock : BlockBase
     {
-        IWebDriver Driver;
+        private IWebDriver Driver;
+
         public BasicExamplesBlock(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
         }
-        IWebElement GetProceedNextButtonElement() =>
+        private IWebElement GetProceedNextButtonElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#btn_inter_example")));
 
-        IWebElement GetSimpleFormDemoLinkElement() =>
+        private IWebElement GetSimpleFormDemoLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(1)")));
 
-        IWebElement GetCheckboxDemoLinkElement() =>
+        private IWebElement GetCheckboxDemoLinkElement() =>
             Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(2)")));
 
         public void ClickProceedNextElement()
         {
-            Wait.Until(condition => 
-                WaitForElementToBeVisible(GetProceedNextButtonElement()));
+            try
+            {
+                Wait.Until(condition =>
+                    WaitForElementToBeVisible(GetProceedNextButtonElement()));
 
-            ScrollElementIntoView(GetProceedNextButtonElement());
-            GetProceedNextButtonElement().Click();
+                ScrollElementIntoView(GetProceedNextButtonElement());
+                GetProceedNextButtonElement().Click();
+            }
+            catch (ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetProceedNextButtonElement().Click();
+            }            
         }
 
         public void ClickSimpleFormDemoLink()
         {
-            Wait.Until(condition =>
+            try
+            {
+                Wait.Until(condition =>
                 WaitForElementToBeVisible(GetSimpleFormDemoLinkElement()));
 
-            GetSimpleFormDemoLinkElement().Click();
+                GetSimpleFormDemoLinkElement().Click();
+            }
+            catch(ElementClickInterceptedException)
+            {
+                ClosePopupWindow();
+                GetSimpleFormDemoLinkElement().Click();
+            }
+            
         }
 
         public void ClickCheckboxDemoLink()
