@@ -7,14 +7,14 @@ namespace SeleniumFrameworkPractise.Pages
 {
     public class DataListFilterPage : PageBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
-        DataListFilterBlock DataListFilterBlock;
+        DataListFilterBlock _dataListFilterBlock;
 
         public DataListFilterPage(IWebDriver driver, DataListFilterBlock dataListFilterBlock) : base(driver)
         {
-            this.Driver = driver;
-            this.DataListFilterBlock = dataListFilterBlock;
+            this._driver = driver;
+            this._dataListFilterBlock = dataListFilterBlock;
         }
 
         private IWebElement GetSearchAttendeesInputElement() =>
@@ -24,6 +24,6 @@ namespace SeleniumFrameworkPractise.Pages
             ClearAndSendKeys(GetSearchAttendeesInputElement(), text);
 
         public List<SearchResultAttendee> getResults() =>
-            DataListFilterBlock.ExtractVisibleResultsFromSearchTable();
+            _dataListFilterBlock.ExtractVisibleResultsFromSearchTable();
     }
 }

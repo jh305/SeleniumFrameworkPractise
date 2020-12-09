@@ -1,33 +1,26 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumFrameworkPractise.Pages.Popups;
+using SeleniumFrameworkPractise.Shared;
 using System;
 
 namespace SeleniumFrameworkPractise
 {
-    public class BlockBase
+    public class BlockBase : SharedToolsBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
-        public WebDriverWait Wait;
+        private LearnSeleniumPopup _learnSeleniumPopup;
 
-        private LearnSeleniumPopup LearnSeleniumPopup;
-
-        public BlockBase(IWebDriver driver)
+        public BlockBase(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
-            this.Wait = GetWait();
-            this.LearnSeleniumPopup = new LearnSeleniumPopup(Driver);
-        }
-
-        public WebDriverWait GetWait()
-        {
-            return new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
+            this._driver = driver;
+            this._learnSeleniumPopup = new LearnSeleniumPopup(_driver);
         }
 
         public void ScrollElementIntoView(IWebElement Element)
         {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
             js.ExecuteScript("arguments[0].scrollIntoView(true)", Element);
         }
 
@@ -47,17 +40,11 @@ namespace SeleniumFrameworkPractise
             }
         }
 
-        public void ClearAndSendKeys(IWebElement element, string text)
-        {
-            element.Clear();
-            element.SendKeys(text);
-        }
-
         public void ClosePopupWindow()
         {
-            if (LearnSeleniumPopup.IsPopupVisible() == true)
+            if (_learnSeleniumPopup.IsPopupVisible() == true)
             {
-                LearnSeleniumPopup.ClosePopupWindow();
+                _learnSeleniumPopup.ClosePopupWindow();
             }            
         }
     }

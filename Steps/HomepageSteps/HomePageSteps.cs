@@ -4,17 +4,17 @@ namespace SeleniumFrameworkPractise.Steps
 {
     public class HomePageSteps
     {
-        private Homepage Homepage;
+        private Homepage _homepage;
 
         public HomePageSteps(Homepage homepage)
         {
-            this.Homepage = homepage;
+            this._homepage = homepage;
         }
 
         public void OpenPage() =>
-            Homepage.NavigateToPage();
+            _homepage.NavigateToPage();
 
         public void ClickStartPractisingButton() =>
-            Homepage.ClickStartPractisingElement();
+            _homepage.ClickStartPractisingElement();
     }
 }

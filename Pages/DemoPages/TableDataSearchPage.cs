@@ -7,19 +7,19 @@ namespace SeleniumFrameworkPractise.Pages.DemoPages
 {
     public class TableDataSearchPage : PageBase
     {
-        private IWebDriver Driver;
-        private TableDataSearchBlock TableDataSearchBlock;
+        private IWebDriver _driver;
+        private TableDataSearchBlock _tableDataSearchBlock;
 
         public TableDataSearchPage(IWebDriver driver, TableDataSearchBlock tableDataSearchBlock) : base(driver)
         {
-            this.Driver = driver;
-            this.TableDataSearchBlock = tableDataSearchBlock;
+            this._driver = driver;
+            this._tableDataSearchBlock = tableDataSearchBlock;
         }
 
         public void EnterTextIntoTasksInputField(string text) =>
-            TableDataSearchBlock.EnterTextIntoTasksInputField(text);
+            _tableDataSearchBlock.EnterTextIntoTasksInputField(text);
 
         public List<SearchResultTask> ReturnSearchResults() =>
-            TableDataSearchBlock.ExtractVisibleResultsFromSearchTable();
+            _tableDataSearchBlock.ExtractVisibleResultsFromSearchTable();
     }
 }

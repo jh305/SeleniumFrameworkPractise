@@ -4,26 +4,26 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class BasicExamplesBlock : BlockBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
         public BasicExamplesBlock(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
+            _driver = driver;
         }
         private IWebElement GetProceedNextButtonElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#btn_inter_example")));
+            WaitAndReturnElement("#btn_inter_example");
 
         private IWebElement GetSimpleFormDemoLinkElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(1)")));
+            WaitAndReturnElement("#basic > div > a:nth-child(1)");
 
         private IWebElement GetCheckboxDemoLinkElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#basic > div > a:nth-child(2)")));
+            WaitAndReturnElement("#basic > div > a:nth-child(2)");
 
         public void ClickProceedNextElement()
         {
             try
             {
-                Wait.Until(condition =>
+                _wait.Until(condition =>
                     WaitForElementToBeVisible(GetProceedNextButtonElement()));
 
                 ScrollElementIntoView(GetProceedNextButtonElement());
@@ -40,7 +40,7 @@ namespace SeleniumFrameworkPractise.Blocks
         {
             try
             {
-                Wait.Until(condition =>
+                _wait.Until(condition =>
                 WaitForElementToBeVisible(GetSimpleFormDemoLinkElement()));
 
                 GetSimpleFormDemoLinkElement().Click();
@@ -55,7 +55,7 @@ namespace SeleniumFrameworkPractise.Blocks
 
         public void ClickCheckboxDemoLink()
         {
-            Wait.Until(condition =>
+            _wait.Until(condition =>
                 WaitForElementToBeVisible(GetCheckboxDemoLinkElement()));
 
             GetCheckboxDemoLinkElement().Click();

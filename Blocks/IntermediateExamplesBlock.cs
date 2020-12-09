@@ -4,27 +4,27 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class IntermediateExamplesBlock : BlockBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
         public IntermediateExamplesBlock(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
+            this._driver = driver;
         }
 
         private IWebElement GetProceedNextButtonElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#btn_advanced_example")));
+            WaitAndReturnElement("#btn_advanced_example");
 
         private IWebElement GetDataListFilterLinkElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(6)")));
+            WaitAndReturnElement("#intermediate > div > a:nth-child(6)");
 
         private IWebElement GetJQuerySelectDropDownLinkElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#intermediate > div > a:nth-child(3)")));
+            WaitAndReturnElement("#intermediate > div > a:nth-child(3)");
 
         public void ClickProceedNextButton()
         {
             try
             {
-                Wait.Until(condition =>
+                _wait.Until(condition =>
                     WaitForElementToBeVisible(GetProceedNextButtonElement()));
 
                 ScrollElementIntoView(GetProceedNextButtonElement());
@@ -41,7 +41,7 @@ namespace SeleniumFrameworkPractise.Blocks
         {
             try
             {
-                Wait.Until(condition =>
+                _wait.Until(condition =>
                     WaitForElementToBeVisible(GetDataListFilterLinkElement()));
 
                 ScrollElementIntoView(GetDataListFilterLinkElement());
@@ -56,7 +56,7 @@ namespace SeleniumFrameworkPractise.Blocks
 
         public void ClickJQuerySelectDropDownLink()
         {
-            Wait.Until(condition =>
+            _wait.Until(condition =>
                 WaitForElementToBeVisible(GetJQuerySelectDropDownLinkElement()));
 
             ScrollElementIntoView(GetJQuerySelectDropDownLinkElement());

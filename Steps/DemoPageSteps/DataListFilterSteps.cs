@@ -6,17 +6,17 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 {
     public class DataListFilterSteps
     {
-        private DataListFilterPage DataListFilterPage;
+        private DataListFilterPage _dataListFilterPage;
 
         public DataListFilterSteps(DataListFilterPage dataListFilterPage)
         {
-            this.DataListFilterPage = dataListFilterPage;
+            this._dataListFilterPage = dataListFilterPage;
         }
 
         public void SearchForAttendee(string attendeeName) =>
-            DataListFilterPage.EnterAttendeeNameIntoFilter(attendeeName);
+            _dataListFilterPage.EnterAttendeeNameIntoFilter(attendeeName);
 
         public List<SearchResultAttendee> GetDataListSearchResults() =>
-            DataListFilterPage.getResults();
+            _dataListFilterPage.getResults();
     }
 }

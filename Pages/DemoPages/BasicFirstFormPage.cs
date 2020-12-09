@@ -4,11 +4,11 @@ namespace SeleniumFrameworkPractise.Pages
 {
     public class BasicFirstFormPage : PageBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
         public BasicFirstFormPage(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
+            this._driver = driver;
         }
 
         private IWebElement GetEnterMessageInputElement() =>

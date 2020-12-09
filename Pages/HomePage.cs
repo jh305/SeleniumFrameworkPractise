@@ -6,17 +6,17 @@ namespace SeleniumFrameworkPractise.Pages
 {
     public class Homepage : PageBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
-        public BasicExamplesBlock BasicExamplesBlock;
-        public IntermediateExamplesBlock IntermediateExamplesBlock;
-        public AdvancedExamplesBlock AdvancedxamplesBlock;
+        public BasicExamplesBlock _basicExamplesBlock;
+        public IntermediateExamplesBlock _intermediateExamplesBlock;
+        public AdvancedExamplesBlock _advancedxamplesBlock;
 
         public Homepage(IWebDriver driver, BasicExamplesBlock basicExamplesBlock, IntermediateExamplesBlock intermediateExamplesBlock) : base(driver)
         {
-            this.Driver = driver;
-            this.BasicExamplesBlock = basicExamplesBlock;
-            this.IntermediateExamplesBlock = intermediateExamplesBlock;
+            this._driver = driver;
+            this._basicExamplesBlock = basicExamplesBlock;
+            this._intermediateExamplesBlock = intermediateExamplesBlock;
         }
 
         private IWebElement GetStartPractisingButtonElement() =>
@@ -36,8 +36,7 @@ namespace SeleniumFrameworkPractise.Pages
             }
             
         }
-
         public void NavigateToPage() =>
-            Driver.Url = TestSettings.SeleniumEasyUrl;
+            _driver.Url = TestSettings.SeleniumEasyUrl;
     }
 }

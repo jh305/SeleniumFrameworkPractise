@@ -4,14 +4,14 @@ namespace SeleniumFrameworkPractise.Steps
 {
     public class AdvancedExamplesSteps
     {
-        private AdvancedExamplesBlock AdvancedExamplesBlock;
+        private AdvancedExamplesBlock _advancedExamplesBlock;
 
         public AdvancedExamplesSteps(AdvancedExamplesBlock advancedExamplesBlock)
         {
-            this.AdvancedExamplesBlock = advancedExamplesBlock;
+            this._advancedExamplesBlock = advancedExamplesBlock;
         }
 
         public void ClickTableDataSearchLink() =>
-            AdvancedExamplesBlock.ClickTableDataSearchElement();
+            _advancedExamplesBlock.ClickTableDataSearchElement();
     }
 }

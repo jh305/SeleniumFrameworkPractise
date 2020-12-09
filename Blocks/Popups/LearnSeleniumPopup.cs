@@ -4,20 +4,20 @@ namespace SeleniumFrameworkPractise.Pages.Popups
 {
     public class LearnSeleniumPopup : PopupBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
         public LearnSeleniumPopup(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
+            _driver = driver;
         }
 
         private IWebElement GetClosePopupWebElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#at-cv-lightbox-close")));
+            WaitAndReturnElement("#at-cv-lightbox-close");
 
         public void ClosePopupWindow()
         {
             GetClosePopupWebElement().Click();
-            Wait.Until(d => d.FindElements(By.CssSelector("#at-cv-lightbox")).Count == 0);
+            WaitAndReturnElement("#at-cv-lightbox");
         }
 
         public bool IsPopupVisible() =>

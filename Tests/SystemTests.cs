@@ -27,13 +27,13 @@ namespace SeleniumFrameworkPractise.Tests
         {
             CreateDriver();
 
-            homePageSteps = new HomePageSteps(new Homepage(Driver, new BasicExamplesBlock(Driver), new IntermediateExamplesBlock(Driver)));
-            basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(Driver));
-            basicFirstFormSteps = new BasicFirstFormSteps(new BasicFirstFormPage(Driver));
-            intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(Driver));
-            dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(Driver, new DataListFilterBlock(Driver)));
-            advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(Driver));
-            tableDataSearchSteps = new TableDataSearchSteps(new TableDataSearchPage(Driver, new TableDataSearchBlock(Driver)));
+            homePageSteps = new HomePageSteps(new Homepage(_driver, new BasicExamplesBlock(_driver), new IntermediateExamplesBlock(_driver)));
+            basicExamplesSteps = new BasicExamplesSteps(new BasicExamplesBlock(_driver));
+            basicFirstFormSteps = new BasicFirstFormSteps(new BasicFirstFormPage(_driver));
+            intermediateExamplesSteps = new IntermediateExamplesSteps(new IntermediateExamplesBlock(_driver));
+            dataListFilterSteps = new DataListFilterSteps(new DataListFilterPage(_driver, new DataListFilterBlock(_driver)));
+            advancedExamplesSteps = new AdvancedExamplesSteps(new AdvancedExamplesBlock(_driver));
+            tableDataSearchSteps = new TableDataSearchSteps(new TableDataSearchPage(_driver, new TableDataSearchBlock(_driver)));
         }
 
         [Test]

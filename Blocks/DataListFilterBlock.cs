@@ -8,18 +8,18 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class DataListFilterBlock : BlockBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
-        private List<SearchResultAttendee> SearchResults;
+        private List<SearchResultAttendee> _searchResults;
 
         public DataListFilterBlock(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
-            this.SearchResults = new List<SearchResultAttendee>();
+            this._driver = driver;
+            this._searchResults = new List<SearchResultAttendee>();
         }
 
         private IWebElement GetSearchResultsElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("body > div.container-fluid.text-center > div > div.col-md-6.text-left > section > div > div.searchable-container")));
+            WaitAndReturnElement("body > div.container-fluid.text-center > div > div.col-md-6.text-left > section > div > div.searchable-container");
 
         public List<SearchResultAttendee> ExtractVisibleResultsFromSearchTable()
         {
@@ -45,7 +45,7 @@ namespace SeleniumFrameworkPractise.Blocks
                 //extract values from search result, create attendee object and return list of attendee objects
                 foreach (IWebElement element in VisibleResultElements)
                 {
-                    SearchResults.Add(new SearchResultAttendee()
+                    _searchResults.Add(new SearchResultAttendee()
                     {
                         CompanyName = element.FindElement(By.TagName("h5")).Text,
                         Name = element.FindElement(By.TagName("h4")).Text,
@@ -55,7 +55,7 @@ namespace SeleniumFrameworkPractise.Blocks
                     });
                 }
 
-                return SearchResults;
+                return _searchResults;
             }
             catch (Exception e)
             {

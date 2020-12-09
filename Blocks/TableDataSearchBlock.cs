@@ -8,20 +8,20 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class TableDataSearchBlock : BlockBase
     {
-        private IWebDriver Driver;
-        private List<SearchResultTask> SearchResults;
+        private IWebDriver _driver;
+        private List<SearchResultTask> _searchResults;
 
         public TableDataSearchBlock(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
-            this.SearchResults = new List<SearchResultTask>();
+            this._driver = driver;
+            this._searchResults = new List<SearchResultTask>();
         }
 
         private IWebElement GetTasksInputFieldElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#task-table-filter")));
+            WaitAndReturnElement("#task-table-filter");
 
         private IWebElement GetTableSearchResultsElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#task-table > tbody")));
+            WaitAndReturnElement("#task-table > tbody");
 
         public void EnterTextIntoTasksInputField(string text)
         {
@@ -35,7 +35,7 @@ namespace SeleniumFrameworkPractise.Blocks
         {
             try
             {
-                Wait.Until(Driver => (bool)((IJavaScriptExecutor)Driver).ExecuteScript("return jQuery.active == 0"));
+                _wait.Until(Driver => (bool)((IJavaScriptExecutor)Driver).ExecuteScript("return jQuery.active == 0"));
 
                 //get search results element
                 IWebElement SearchResultsElement = GetTableSearchResultsElement();
@@ -59,7 +59,7 @@ namespace SeleniumFrameworkPractise.Blocks
                 {
                     ReadOnlyCollection<IWebElement> SearchResultValues = element.FindElements(By.TagName("td"));
 
-                    SearchResults.Add(new SearchResultTask()
+                    _searchResults.Add(new SearchResultTask()
                     {
                         Number = SearchResultValues[0].Text,
                         Name = SearchResultValues[1].Text,
@@ -68,7 +68,7 @@ namespace SeleniumFrameworkPractise.Blocks
                     });
                 }
 
-                return SearchResults;
+                return _searchResults;
             }
             catch (Exception e)
             {

@@ -2,11 +2,12 @@
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumFrameworkPractise.Pages.Popups;
+using SeleniumFrameworkPractise.Shared;
 using System;
 
 namespace SeleniumFrameworkPractise
 {
-    public class PageBase
+    public class PageBase : SharedToolsBase
     {
         private IWebDriver Driver;
 
@@ -16,16 +17,12 @@ namespace SeleniumFrameworkPractise
 
         private LearnSeleniumPopup LearnSeleniumPopup;
 
-        public PageBase(IWebDriver driver)
+        public PageBase(IWebDriver driver) : base(driver)
         {
             this.Driver = driver;
-            this.Wait = GetWait();
             this.Actions = GetActions();
             this.LearnSeleniumPopup = new LearnSeleniumPopup(Driver);
         }
-
-        public WebDriverWait GetWait() =>
-              new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
 
         public Actions GetActions() =>
             new Actions(Driver);
@@ -34,12 +31,6 @@ namespace SeleniumFrameworkPractise
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             js.ExecuteScript("arguments[0].scrollIntoView(true)", Element);
-        }
-
-        public void ClearAndSendKeys(IWebElement element, string text)
-        {
-            element.Clear();
-            element.SendKeys(text);
         }
 
         public bool WaitForElementToBeVisible(IWebElement element)
@@ -60,11 +51,6 @@ namespace SeleniumFrameworkPractise
 
         private IWebElement GetSlider1CurrentRangeElement() =>
             Driver.FindElement(By.CssSelector("#slider1 > div.range > output#range"));
-
-        protected IWebElement WaitAndReturnElement(string cssSelector) => 
-            Wait.Until(d => ReturnElement(cssSelector));
-
-        protected IWebElement ReturnElement(string cssSelector) => Driver.FindElement(By.CssSelector(cssSelector));
 
         public void ClosePopupWindow()
         {

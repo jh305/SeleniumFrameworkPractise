@@ -1,24 +1,16 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
+using SeleniumFrameworkPractise.Shared;
 
 namespace SeleniumFrameworkPractise
 {
-    public class PopupBase
+    public class PopupBase : SharedToolsBase
     {
-        private IWebDriver Driver;
+        private IWebDriver driver;
 
-        public WebDriverWait Wait;
-
-        public PopupBase(IWebDriver driver)
+        public PopupBase(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
-            this.Wait = GetWait();
-        }
-
-        public WebDriverWait GetWait()
-        {
-            return new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
+            this.driver = driver;
         }
     }
 }

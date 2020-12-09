@@ -4,21 +4,21 @@ namespace SeleniumFrameworkPractise.Blocks
 {
     public class AdvancedExamplesBlock: BlockBase
     {
-        private IWebDriver Driver;
+        private IWebDriver _driver;
 
         public AdvancedExamplesBlock(IWebDriver driver) : base(driver)
         {
-            this.Driver = driver;
+            _driver = driver;
         }
 
         private IWebElement GetTableDataSearchLinkElement() =>
-            Wait.Until(d => d.FindElement(By.CssSelector("#advanced > div > a:nth-child(2)")));
+            WaitAndReturnElement("#advanced > div > a:nth-child(2)");
 
         public void ClickTableDataSearchElement()
         {
             try
             {
-                Wait.Until(condition =>
+                _wait.Until(condition =>
                     WaitForElementToBeVisible(GetTableDataSearchLinkElement()));
 
                 GetTableDataSearchLinkElement().Click();

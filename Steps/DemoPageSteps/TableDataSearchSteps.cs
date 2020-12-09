@@ -6,17 +6,17 @@ namespace SeleniumFrameworkPractise.Steps.DemoPageSteps
 {
     public class TableDataSearchSteps
     {
-        private TableDataSearchPage TableDataSearchPage;
+        private TableDataSearchPage _tableDataSearchPage;
 
         public TableDataSearchSteps(TableDataSearchPage tableDataSearchPage)
         {
-            this.TableDataSearchPage = tableDataSearchPage;
+            this._tableDataSearchPage = tableDataSearchPage;
         }
 
         public void SearchForTaskAssigneeStatus(string taskOrAssigneeOrStatus) =>
-            TableDataSearchPage.EnterTextIntoTasksInputField(taskOrAssigneeOrStatus);
+            _tableDataSearchPage.EnterTextIntoTasksInputField(taskOrAssigneeOrStatus);
 
         public List<SearchResultTask> GetDataSearchResults() =>
-            TableDataSearchPage.ReturnSearchResults();
+            _tableDataSearchPage.ReturnSearchResults();
     }
 }

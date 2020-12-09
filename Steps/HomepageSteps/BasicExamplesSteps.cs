@@ -4,20 +4,20 @@ namespace SeleniumFrameworkPractise.Steps
 {
     public class BasicExamplesSteps
     {
-        private BasicExamplesBlock BasicExamplesBlock;
+        private BasicExamplesBlock _basicExamplesBlock;
 
         public BasicExamplesSteps(BasicExamplesBlock basicExamplesBlock)
         {
-            this.BasicExamplesBlock = basicExamplesBlock;
+            this._basicExamplesBlock = basicExamplesBlock;
         }
 
         public void ClickProceedNextButton() =>
-            BasicExamplesBlock.ClickProceedNextElement();
+            _basicExamplesBlock.ClickProceedNextElement();
 
         public void ClickSimpleFormDemoLink() =>
-            BasicExamplesBlock.ClickSimpleFormDemoLink();
+            _basicExamplesBlock.ClickSimpleFormDemoLink();
 
         public void ClickCheckboxDemoLink() =>
-            BasicExamplesBlock.ClickCheckboxDemoLink();
+            _basicExamplesBlock.ClickCheckboxDemoLink();
     }
 }
